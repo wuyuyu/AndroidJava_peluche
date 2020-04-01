@@ -4,40 +4,23 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/fond-logo"
     tools:context=".MainActivity">
 
     <ImageView
         android:id="@+id/imageViewPandaAccueil"
         android:layout_width="wrap_content"
-        android:layout_height="200dp"
-        android:layout_marginTop="40dp"
-        app:layout_constraintEnd_toEndOf="@+id/textView8"
-        app:layout_constraintStart_toStartOf="@+id/textView8"
-        app:layout_constraintTop_toBottomOf="@+id/textView8"
-        app:srcCompat="@drawable/panda" />
-
-    <TextView
-        android:id="@+id/textView8"
-        android:layout_width="wrap_content"
-        android:layout_height="75dp"
-        android:layout_marginTop="32dp"
-
-        android:background="@drawable/fond_logo"
-        android:foregroundGravity="center_vertical|center_horizontal"
-        android:gravity="center"
-        android:text="Peluche Connectée"
-        android:textSize="30sp"
+        android:layout_height="150dp"
+        android:layout_marginTop="8dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/TextView"
+        app:srcCompat="@drawable/panda" />
 
     <Button
         android:id="@+id/buttonInscription"
         android:layout_width="150dp"
         android:layout_height="30dp"
-        android:layout_marginTop="300dp"
+        android:layout_marginTop="8dp"
         android:background="#6BCEA4"
         android:fontFamily="monospace"
         android:gravity="center"
@@ -46,9 +29,9 @@
         android:textColor="#000000"
         android:textSize="10sp"
         android:textStyle="bold|italic"
-        app:layout_constraintEnd_toEndOf="@+id/textView8"
-        app:layout_constraintStart_toStartOf="@+id/textView8"
-        app:layout_constraintTop_toBottomOf="@+id/textView8"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/welcomeTextView"
         tools:text="Inscription/Connexion" />
 
     <Button
@@ -122,12 +105,30 @@
         app:layout_constraintTop_toBottomOf="@+id/buttonContact" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/welcomeTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
         android:fontFamily="cursive"
         android:textColor="#5DC693"
-        tools:layout_editor_absoluteX="176dp"
-        tools:layout_editor_absoluteY="362dp"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageViewPandaAccueil"
         tools:text="Bienvenue" />
+
+    <TextView
+        android:id="@+id/TextView"
+        android:layout_width="250dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/fond_logo"
+        android:fontFamily="cursive"
+        android:gravity="center"
+        android:text="Peluche Connectée"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

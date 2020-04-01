@@ -4,15 +4,90 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/fond-logo"
     tools:context=".MainActivity">
 
+    <ImageView
+        android:id="@+id/imageViewPandaAccueil"
+        android:layout_width="wrap_content"
+        android:layout_height="200dp"
+        android:layout_marginTop="40dp"
+        app:layout_constraintEnd_toEndOf="@+id/textView8"
+        app:layout_constraintStart_toStartOf="@+id/textView8"
+        app:layout_constraintTop_toBottomOf="@+id/textView8"
+        app:srcCompat="@drawable/panda" />
+
     <TextView
+        android:id="@+id/textView8"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginTop="32dp"
+
+        android:background="@drawable/fond-logo"
+        android:text="Peluche Connectée"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <Button
+        android:id="@+id/buttonInscription"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="300dp"
+        android:text="Inscription/Connexion"
+        app:layout_constraintEnd_toEndOf="@+id/textView8"
+        app:layout_constraintStart_toStartOf="@+id/textView8"
+        app:layout_constraintTop_toBottomOf="@+id/textView8"
+        tools:text="Inscription/Connexion" />
+
+    <Button
+        android:id="@+id/buttonBoutique"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Boutique"
+        app:layout_constraintEnd_toEndOf="@+id/buttonInscription"
+        app:layout_constraintStart_toStartOf="@+id/buttonInscription"
+        app:layout_constraintTop_toBottomOf="@+id/buttonInscription" />
+
+    <Button
+        android:id="@+id/buttonConseil"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Conseil"
+        app:layout_constraintEnd_toEndOf="@+id/buttonBoutique"
+        app:layout_constraintStart_toStartOf="@+id/buttonBoutique"
+        app:layout_constraintTop_toBottomOf="@+id/buttonBoutique" />
+
+    <Button
+        android:id="@+id/buttonForum"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Forum"
+        app:layout_constraintEnd_toEndOf="@+id/buttonConseil"
+        app:layout_constraintStart_toStartOf="@+id/buttonConseil"
+        app:layout_constraintTop_toBottomOf="@+id/buttonConseil" />
+
+    <Button
+        android:id="@+id/buttonContact"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Contact"
+        app:layout_constraintEnd_toEndOf="@+id/buttonForum"
+        app:layout_constraintStart_toStartOf="@+id/buttonForum"
+        app:layout_constraintTop_toBottomOf="@+id/buttonForum" />
+
+    <Button
+        android:id="@+id/buttonApropos"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="A propos"
+        app:layout_constraintEnd_toEndOf="@+id/buttonContact"
+        app:layout_constraintStart_toStartOf="@+id/buttonContact"
+        app:layout_constraintTop_toBottomOf="@+id/buttonContact" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -84,8 +84,8 @@
             android:layout_height="wrap_content"
             android:text="Dictaphone" />
 
-        <TextView
-            android:id="@+id/textView4"
+        <Button
+            android:id="@+id/buttonMap"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Vous pouvez nous retrouver ici" />

@@ -96,7 +96,8 @@
             android:layout_height="259dp"
             android:apiKey="AIzaSyBa8gXeHhta-pDTJTyPojgRHeM2cUFW5HE"
             android:clickable="true"
-            android:enabled="true" />
+            android:enabled="true"
+            android:visibility="visible" />
 
     </LinearLayout>
 </androidx.core.widget.NestedScrollView>

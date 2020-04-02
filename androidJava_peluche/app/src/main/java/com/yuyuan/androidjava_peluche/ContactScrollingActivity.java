@@ -41,6 +41,8 @@ public class ContactScrollingActivity extends AppCompatActivity implements OnMap
 
     }
 
+
+
     @Override
     public void onMapReady(GoogleMap googleMap) {
         // Add a marker in Sydney, Australia,

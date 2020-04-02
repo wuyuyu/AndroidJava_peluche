@@ -1,0 +1,24 @@
+<resources>
+    <!--
+    TODO: Before you run your application, you need a Google Maps API key.
+
+    To get one, follow this link, follow the directions and press "Create" at the end:
+
+    https://console.developers.google.com/flows/enableapi?apiid=maps_android_backend&keyType=CLIENT_SIDE_ANDROID&r=38:CE:7D:68:46:D9:C1:CF:72:C5:5A:09:22:BE:E6:64:37:4B:D9:14%3Bcom.yuyuan.androidjava_peluche
+
+    You can also add your credentials to an existing key, using these values:
+
+    Package name:
+    com.yuyuan.androidjava_peluche
+
+    SHA-1 certificate fingerprint:
+    38:CE:7D:68:46:D9:C1:CF:72:C5:5A:09:22:BE:E6:64:37:4B:D9:14
+
+    Alternatively, follow the directions here:
+    https://developers.google.com/maps/documentation/android/start#get-key
+
+    Once you have your key (it starts with "AIza"), replace the "google_maps_key"
+    string in this file.
+    -->
+    <string name="google_maps_key" templateMergeStrategy="preserve" translatable="false">YOUR_KEY_HERE</string>
+</resources>

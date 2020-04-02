@@ -32,7 +32,7 @@ public class ContactScrollingActivity extends AppCompatActivity implements OnMap
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         toolbar.setLogo(getDrawable(R.mipmap.icone_panda_round));
-        toolbar.setSubtitle("Peluche Connectée");
+        toolbar.setTitle("Peluche Connectée");
 
         buttonMap = findViewById(R.id.buttonMap);
         buttonMap.setOnClickListener(new View.OnClickListener() {

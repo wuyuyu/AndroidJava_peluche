@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "932805687109",
+    "firebase_url": "https://peluche-e5396.firebaseio.com",
+    "project_id": "peluche-e5396",
+    "storage_bucket": "peluche-e5396.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:932805687109:android:70de93593a590935e2302c",
+        "android_client_info": {
+          "package_name": "com.yuyuan.androidjava_peluche"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "932805687109-fh6u68294qorvqtj4sdsnr9kut3o1kag.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCNBgOCpaZsuyvREuJlDeT_ALuirciIGwo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "932805687109-fh6u68294qorvqtj4sdsnr9kut3o1kag.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

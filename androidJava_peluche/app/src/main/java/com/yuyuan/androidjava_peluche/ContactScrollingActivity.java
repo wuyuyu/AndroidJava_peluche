@@ -20,7 +20,7 @@ import android.widget.Button;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.SupportMapFragment;
 
-public class ContactScrollingActivity extends AppCompatActivity implements OnMapReadyCallback {
+public class ContactScrollingActivity extends AppCompatActivity {
     GoogleMap locationMapView;
     private Button buttonMap;
 
@@ -34,14 +34,6 @@ public class ContactScrollingActivity extends AppCompatActivity implements OnMap
         toolbar.setLogo(getDrawable(R.mipmap.icone_panda_round));
         toolbar.setTitle("Peluche Connectée");
 
-        buttonMap = findViewById(R.id.buttonMap);
-        buttonMap.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                goToMap();
-            }
-        });
-
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -51,27 +43,8 @@ public class ContactScrollingActivity extends AppCompatActivity implements OnMap
             }
         });
 
-        /*SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
-                .findFragmentById(R.id.map);
-        mapFragment.getMapAsync(this);*/
-
-
-    }
-
-    private void goToMap() {
-        Intent intent = new Intent(this, MapsActivity.class);
-        startActivity(intent);
     }
 
 
-    @Override
-    public void onMapReady(GoogleMap googleMap) {
-        // Add a marker in Sydney, Australia,
-        // and move the map's camera to the same location.
-        LatLng sydney = new LatLng(-33.852, 151.211);
-        googleMap.addMarker(new MarkerOptions().position(sydney)
-                .title("Marker in Sydney"));
-        googleMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
 
-    }
 }

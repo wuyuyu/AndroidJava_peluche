@@ -45,16 +45,40 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        buttonBoutique = findViewById(R.id.buttonBoutique);
+        buttonBoutique.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                goToBoutique();
+            }
+        });
+
+        buttonApropos = findViewById(R.id.buttonApropos);
+        buttonApropos.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                goToApropos();
+            }
+        });
+
     }
 
     private void goToContact() {
-        final Intent intent1 = new Intent(this, ContactScrollingActivity.class);
-        startActivity(intent1);
+        final Intent intentContact = new Intent(this, ContactScrollingActivity.class);
+        startActivity(intentContact);
     }
 
     private void goToConnection() {
-        final Intent intent = new Intent(this, LoginActivity.class);
-        startActivity(intent);
+        final Intent intentConnection = new Intent(this, LoginActivity.class);
+        startActivity(intentConnection);
 
+    }
+    private void goToBoutique() {
+        final Intent intentBoutique = new Intent(this, BoutiqueActivity.class);
+        startActivity(intentBoutique);
+    }
+    private void goToApropos() {
+        final Intent intentApropos = new Intent(this,AproposActivity.class);
+        startActivity(intentApropos);
     }
 }

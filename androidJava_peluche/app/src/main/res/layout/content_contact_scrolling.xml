@@ -14,13 +14,13 @@
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/TextView1"
+            android:id="@+id/textView1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Aidez-nous à concevoir la peluche idéale! " />
 
         <TextView
-            android:id="@+id/TextView2"
+            android:id="@+id/textView2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Combien seriez-vous prêts à payer pour cette peluche? " />
@@ -84,20 +84,17 @@
             android:layout_height="wrap_content"
             android:text="Dictaphone" />
 
-        <Button
-            android:id="@+id/buttonMap"
+        <TextView
+            android:id="@+id/textView4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Vous pouvez nous retrouver ici" />
 
-        <com.google.android.gms.maps.MapView
-            android:id="@+id/mapView"
+        <fragment
+            android:id="@+id/fragment"
+            android:name="com.yuyuan.androidjava_peluche.MapFragment"
             android:layout_width="match_parent"
-            android:layout_height="259dp"
-            android:apiKey="AIzaSyBa8gXeHhta-pDTJTyPojgRHeM2cUFW5HE"
-            android:clickable="true"
-            android:enabled="true"
-            android:visibility="visible" />
+            android:layout_height="250dp" />
 
     </LinearLayout>
 </androidx.core.widget.NestedScrollView>

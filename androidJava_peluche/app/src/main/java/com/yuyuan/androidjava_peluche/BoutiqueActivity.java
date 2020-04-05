@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
@@ -20,6 +21,10 @@ public class BoutiqueActivity extends AppCompatActivity {
     private TextView prixTotal;
     private Button acheter;
     private RadioGroup radioGroupLivraison;
+    private EditText quantite;
+
+    private int quantiteInt;
+    float prixLivraison;
 
 
 
@@ -35,38 +40,54 @@ public class BoutiqueActivity extends AppCompatActivity {
         prixTotal = findViewById(R.id.textViewPrixTotal);
         acheter = findViewById(R.id.buttonAcheter);
         radioGroupLivraison = findViewById(R.id.radioGroupLivraison);
-        EditText quantite = findViewById(R.id.editTextQuantite);
-        String quantiteStr = quantite.getText().toString();
+        quantite = findViewById(R.id.editTextQuantite);
 
-        try {
-            int quantiteAchat = 1;
-            prixTotal.setText("Total: " + quantiteAchat *29.99 + "€");
-            Log.i("boutique", "setText quantiteAchat");
-            quantiteAchat = Integer.parseInt(quantite.getText().toString());
+        quantiteInt = 1;
 
-            if (quantiteStr.isEmpty()) {
-                Toast.makeText(BoutiqueActivity.this, "Quantité vide", Toast.LENGTH_SHORT)
-                        .show();
 
-                return;
+
+
+        quantite.setOnClickListener(new View.OnClickListener(){
+
+            @Override
+            public void onClick(View v) {
+                String quantiteStr  = quantite.getText().toString();
+                quantiteInt = Integer.parseInt(quantiteStr);
+                prixTotal.setText("Total: " + quantiteInt *29.99 + "€");
             }
+        });
 
+        livraison1.setOnClickListener(new View.OnClickListener() {
 
-
-            if (livraison1.isSelected()) {
-
-                Log.i("boutique", "livraison 1");
-
-                prixTotal.setText("Total: " + quantiteAchat * 29.99 + "€");
+            @Override
+            public void onClick(View v) {
+                prixLivraison = 0;
+                Log.i("boutique", "set onClickListener livraison gratuit");
             }
-            if (livraison2.isSelected()) {
-                prixTotal.setText("Total: " + quantiteAchat * 35.98 + "€");
-                Log.i("boutique", "livraison 2");
-            }
+        });
 
-        } catch (NumberFormatException nfe) {
-            nfe.printStackTrace();
+        livraison2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                prixLivraison = (float) 5.99;
+                Log.i("boutique", "set onClickListener livraison 5.99€");
+            }
+        });
+
+        prixTotal.setText("Total: " + quantiteInt*( 29.99 + prixLivraison) + "€");
+
+        /*if (quantiteStr.isEmpty()) {
+            Toast.makeText(BoutiqueActivity.this, "Montant vide", Toast.LENGTH_SHORT)
+                    .show();
+
+            return;
         }
+
+         */
+
+
+
+
 
     }
 

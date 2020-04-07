@@ -8,7 +8,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.yuyuan.androidjava_peluche.ui.login.LoginActivity;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class MainActivity extends AppCompatActivity {
     private TextView welcomeTextView;
@@ -69,9 +70,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void goToConnection() {
-        final Intent intentConnection = new Intent(this, LoginActivity.class);
+        final Intent intentConnection = new Intent(this, ConnexionActivity.class);
         startActivity(intentConnection);
-
     }
     private void goToBoutique() {
         final Intent intentBoutique = new Intent(this, BoutiqueActivity.class);

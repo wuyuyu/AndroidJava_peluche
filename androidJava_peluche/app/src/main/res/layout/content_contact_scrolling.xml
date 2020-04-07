@@ -92,7 +92,7 @@
 
         <fragment
             android:id="@+id/fragment"
-            android:name="com.yuyuan.androidjava_peluche.MapFragment"
+            android:name="com.yuyuan.androidjava_peluche.CarteFragment"
             android:layout_width="match_parent"
             android:layout_height="250dp" />
 

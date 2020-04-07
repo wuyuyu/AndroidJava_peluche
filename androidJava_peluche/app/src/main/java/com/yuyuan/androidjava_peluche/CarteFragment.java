@@ -18,17 +18,17 @@ import com.google.android.gms.maps.model.MarkerOptions;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link MapFragment#newInstance} factory method to
+ * Use the {@link CarteFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class MapFragment extends Fragment implements OnMapReadyCallback {
+public class CarteFragment extends Fragment implements OnMapReadyCallback {
     private MapView locationMap;
 
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.fragment_map, container);
+        View rootView = inflater.inflate(R.layout.fragment_carte, container);
         // Inflate the layout for this fragment
         locationMap = (MapView) rootView.findViewById(R.id.locationMapView);
         locationMap.onCreate(savedInstanceState);

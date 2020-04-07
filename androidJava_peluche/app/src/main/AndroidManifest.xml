@@ -23,6 +23,7 @@
         <activity android:name=".InscriptionActivity" />
         <activity android:name=".ConnexionActivity" />
         <activity android:name=".BoutiqueActivity" />
+        <activity android:name=".ComptinesListeActivity"></activity>
         <activity android:name=".AproposActivity" />
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.

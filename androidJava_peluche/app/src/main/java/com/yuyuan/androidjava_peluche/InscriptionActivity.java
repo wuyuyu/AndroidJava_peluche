@@ -50,6 +50,8 @@ public class InscriptionActivity extends AppCompatActivity {
             public void onClick(View v) {
                 if(checkMail() == true && checkPassword()== true){
                     signIn();
+                    goToMonCompte();
+                    finish();
                 }
             }
         });
@@ -114,5 +116,11 @@ public class InscriptionActivity extends AppCompatActivity {
     private void goToConnexion() {
         final Intent intentConnexion = new Intent(this, ConnexionActivity.class);
         startActivity(intentConnexion);
+    }
+
+    private void goToMonCompte(){
+        final Intent intentMonCompte = new Intent(this , MonCompteScrollingActivity.class);
+        startActivity(intentMonCompte);
+        finish();
     }
 }

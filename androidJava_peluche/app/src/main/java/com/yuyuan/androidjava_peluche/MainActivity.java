@@ -15,7 +15,7 @@ public class MainActivity extends AppCompatActivity {
     private Button buttonInscription;
     private Button buttonContact;
     private Button buttonBoutique;
-    private Button buttonConseil;
+    private Button buttonComptines;
     private Button buttonForum;
     private Button buttonApropos;
 
@@ -61,6 +61,19 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        buttonComptines = findViewById(R.id.buttonComptines);
+        buttonComptines.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                gotoComptines();
+            }
+        });
+
+    }
+
+    private void gotoComptines() {
+        final Intent intentComptines = new Intent(this,ComptinesListeActivity.class);
+        startActivity(intentComptines);
     }
 
     private void goToContact() {

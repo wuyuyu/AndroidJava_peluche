@@ -1,27 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar" />
+
+    <TextView
+        android:id="@+id/TextView"
+        android:layout_width="250dp"
+        android:layout_height="50dp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/toolbar"
+        android:layout_marginTop="29dp"
+        android:background="@drawable/fond_logo"
+        android:fontFamily="cursive"
+        android:gravity="center"
+        android:text="Peluche Connectée"
+        android:textSize="18sp" />
+
     <ImageView
         android:id="@+id/imageViewPandaAccueil"
         android:layout_width="wrap_content"
         android:layout_height="150dp"
+        android:layout_below="@+id/TextView"
         android:layout_marginTop="8dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/TextView"
         app:srcCompat="@drawable/panda" />
 
     <Button
         android:id="@+id/buttonInscription"
         android:layout_width="150dp"
         android:layout_height="30dp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/monCompteButton"
         android:layout_marginTop="8dp"
-        android:background="#6BCEA4"
+        android:background="#5DC693"
         android:fontFamily="monospace"
         android:gravity="center"
         android:selectAllOnFocus="false"
@@ -29,106 +46,98 @@
         android:textColor="#000000"
         android:textSize="10sp"
         android:textStyle="bold|italic"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/welcomeTextView"
         tools:text="Inscription/Connexion" />
 
     <Button
         android:id="@+id/buttonBoutique"
         android:layout_width="150dp"
         android:layout_height="30dp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/buttonInscription"
         android:layout_marginTop="8dp"
-        android:background="#5DC693"
+        android:background="#4EBD81"
         android:fontFamily="monospace"
         android:text="Boutique"
         android:textSize="10sp"
-        android:textStyle="bold|italic"
-        app:layout_constraintEnd_toEndOf="@+id/buttonInscription"
-        app:layout_constraintStart_toStartOf="@+id/buttonInscription"
-        app:layout_constraintTop_toBottomOf="@+id/buttonInscription" />
+        android:textStyle="bold|italic" />
 
     <Button
         android:id="@+id/buttonComptines"
         android:layout_width="150dp"
         android:layout_height="30dp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/buttonBoutique"
         android:layout_marginTop="8dp"
-        android:background="#4EBD81"
+        android:background="#42B36E"
         android:fontFamily="monospace"
         android:text="Comptines"
         android:textSize="10sp"
-        android:textStyle="bold|italic"
-        app:layout_constraintEnd_toEndOf="@+id/buttonBoutique"
-        app:layout_constraintStart_toStartOf="@+id/buttonBoutique"
-        app:layout_constraintTop_toBottomOf="@+id/buttonBoutique" />
+        android:textStyle="bold|italic" />
 
     <Button
         android:id="@+id/buttonForum"
         android:layout_width="150dp"
         android:layout_height="30dp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/buttonComptines"
         android:layout_marginTop="8dp"
-        android:background="#42B36E"
+        android:background="#38A85B"
         android:fontFamily="monospace"
         android:text="Forum"
         android:textSize="10sp"
-        android:textStyle="bold|italic"
-        app:layout_constraintEnd_toEndOf="@+id/buttonComptines"
-        app:layout_constraintStart_toStartOf="@+id/buttonComptines"
-        app:layout_constraintTop_toBottomOf="@+id/buttonComptines" />
+        android:textStyle="bold|italic" />
 
     <Button
         android:id="@+id/buttonContact"
         android:layout_width="150dp"
         android:layout_height="30dp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/buttonForum"
         android:layout_marginTop="8dp"
-        android:background="#38A85B"
+        android:background="#309B49"
         android:fontFamily="monospace"
         android:text="Contact"
         android:textSize="10sp"
-        android:textStyle="bold|italic"
-        app:layout_constraintEnd_toEndOf="@+id/buttonForum"
-        app:layout_constraintStart_toStartOf="@+id/buttonForum"
-        app:layout_constraintTop_toBottomOf="@+id/buttonForum" />
+        android:textStyle="bold|italic" />
 
     <Button
         android:id="@+id/buttonApropos"
         android:layout_width="150dp"
         android:layout_height="30dp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/buttonContact"
         android:layout_marginTop="8dp"
-        android:background="#309B49"
+        android:background="#298D39"
         android:fontFamily="monospace"
         android:text="A propos"
         android:textSize="10sp"
-        android:textStyle="bold|italic"
-        app:layout_constraintEnd_toEndOf="@+id/buttonContact"
-        app:layout_constraintStart_toStartOf="@+id/buttonContact"
-        app:layout_constraintTop_toBottomOf="@+id/buttonContact" />
+        android:textStyle="bold|italic" />
 
     <TextView
         android:id="@+id/welcomeTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/imageViewPandaAccueil"
+        android:layout_marginTop="16dp"
         android:fontFamily="cursive"
+        android:gravity="center"
         android:textColor="#5DC693"
         android:textSize="16sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageViewPandaAccueil"
         tools:text="Bienvenue" />
 
-    <TextView
-        android:id="@+id/TextView"
-        android:layout_width="250dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="32dp"
-        android:background="@drawable/fond_logo"
-        android:fontFamily="cursive"
+    <Button
+        android:id="@+id/monCompteButton"
+        android:layout_width="150dp"
+        android:layout_height="30dp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/welcomeTextView"
+        android:layout_marginTop="16dp"
+        android:background="#6BCEA4"
+        android:fontFamily="monospace"
         android:gravity="center"
-        android:text="Peluche Connectée"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        android:text="Mon compte"
+        android:textSize="10sp"
+        android:textStyle="bold|italic" />
+</RelativeLayout>

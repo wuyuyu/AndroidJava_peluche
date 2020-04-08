@@ -4,21 +4,28 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 public class MainActivity extends AppCompatActivity {
+
+    private FirebaseAuth mAuth;
     private TextView welcomeTextView;
     private Button buttonInscription;
+    private Button buttonMonCompte;
     private Button buttonContact;
     private Button buttonBoutique;
     private Button buttonComptines;
     private Button buttonForum;
     private Button buttonApropos;
+    private String userId;
 
 
     @Override
@@ -27,22 +34,51 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         setTitle("Peluche Connectée");
 
-        welcomeTextView = findViewById(R.id.welcomeTextView);
-        welcomeTextView.setText("Bienvenue");
+        // Initialize Firebase Auth
+        mAuth = FirebaseAuth.getInstance();
 
+        welcomeTextView = findViewById(R.id.welcomeTextView);
+        buttonMonCompte = findViewById(R.id.monCompteButton);
         buttonInscription = findViewById(R.id.buttonInscription);
-        buttonInscription.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                goToConnection();
-            }
-        });
+
+        final FirebaseUser user = mAuth.getCurrentUser();
+
+        if (user != null) {
+            // User is signed in
+            userId = user.getUid();
+            buttonMonCompte.setVisibility(View.VISIBLE);
+            buttonMonCompte.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    goToMonCompte();
+                }
+            });
+            buttonInscription.setText("Deconnexion");
+            buttonInscription.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    goToDeconnexion();
+                }
+            });
+        } else {
+            // No user is signed in
+            buttonMonCompte.setVisibility(View.INVISIBLE);
+            buttonInscription.setText("Inscription/Connexion");
+            buttonInscription.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    goToConnection();
+                }
+            });
+        }
+        welcomeTextView.setText("Bienvenue");
 
         buttonContact = findViewById(R.id.buttonContact);
         buttonContact.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 goToContact();
+                Log.i("MainActivity", "onClick: " + user.getUid());
             }
         });
 
@@ -70,6 +106,16 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    private void goToDeconnexion() {
+        final Intent intentDeconnexion = new Intent(this, DeconnexionActivity.class);
+        startActivity(intentDeconnexion);
+    }
+
+    private void goToMonCompte() {
+        final Intent intentMonCompte = new Intent(this , MonCompteScrollingActivity.class);
+        startActivity(intentMonCompte);
     }
 
     private void gotoComptines() {

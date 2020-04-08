@@ -9,6 +9,7 @@
     tools:showIn="@layout/activity_mon_compte_scrolling">
 
     <LinearLayout
+        android:id="@+id/profilLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="center_horizontal"
@@ -41,19 +42,19 @@
                         android:id="@+id/avatar1RadioButton"
                         android:layout_width="110dp"
                         android:layout_height="110dp"
-                        android:button="@drawable/chat"/>
+                        android:button="@drawable/chat" />
 
                     <RadioButton
                         android:id="@+id/avatar2RadioButton"
                         android:layout_width="110dp"
                         android:layout_height="110dp"
-                        android:button="@drawable/cochon"/>
+                        android:button="@drawable/cochon" />
 
                     <RadioButton
                         android:id="@+id/avatar3RadioButton"
                         android:layout_width="110dp"
                         android:layout_height="110dp"
-                        android:button="@drawable/hamster"/>
+                        android:button="@drawable/hamster" />
                 </TableRow>
 
                 <TableRow

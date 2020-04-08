@@ -1,104 +1,96 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".InscriptionActivity">
 
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar" />
+
     <TextView
         android:id="@+id/textViewInscripton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="200dp"
-        android:text="Inscrivez-vous"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/toolbar"
+        android:layout_marginTop="100dp"
+        android:text="Inscrivez-vous" />
 
     <TextView
         android:id="@+id/textViewEmailInscrip"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/textViewInscripton"
         android:layout_marginTop="32dp"
-        android:text="Email :"
-        app:layout_constraintEnd_toEndOf="@+id/textViewInscripton"
-        app:layout_constraintHorizontal_bias="0.489"
-        app:layout_constraintStart_toStartOf="@+id/textViewInscripton"
-        app:layout_constraintTop_toBottomOf="@+id/textViewInscripton" />
+        android:text="Email :" />
 
     <TextView
         android:id="@+id/textViewMdPInscrip"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/emailEditText"
         android:layout_marginTop="24dp"
-        android:text="Choisissez votre mot de passe :"
-        app:layout_constraintEnd_toEndOf="@+id/emailEditText"
-        app:layout_constraintStart_toStartOf="@+id/emailEditText"
-        app:layout_constraintTop_toBottomOf="@+id/emailEditText" />
+        android:text="Choisissez votre mot de passe :" />
 
     <EditText
         android:id="@+id/mdpEditText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/textViewMdPInscrip"
         android:layout_marginTop="8dp"
         android:ems="10"
-        android:inputType="textPassword"
-        app:layout_constraintEnd_toEndOf="@+id/textViewMdPInscrip"
-        app:layout_constraintStart_toStartOf="@+id/textViewMdPInscrip"
-        app:layout_constraintTop_toBottomOf="@+id/textViewMdPInscrip" />
+        android:inputType="textPassword" />
 
     <TextView
         android:id="@+id/textViewMdpConfirm"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/mdpEditText"
         android:layout_marginTop="24dp"
-        android:text="Confirmez votre mot de passe : "
-        app:layout_constraintEnd_toEndOf="@+id/mdpEditText"
-        app:layout_constraintStart_toStartOf="@+id/mdpEditText"
-        app:layout_constraintTop_toBottomOf="@+id/mdpEditText" />
+        android:text="Confirmez votre mot de passe : " />
 
     <EditText
         android:id="@+id/mdpConfirmEditText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/textViewMdpConfirm"
         android:layout_marginTop="8dp"
         android:ems="10"
-        android:inputType="textPassword"
-        app:layout_constraintEnd_toEndOf="@+id/textViewMdpConfirm"
-        app:layout_constraintStart_toStartOf="@+id/textViewMdpConfirm"
-        app:layout_constraintTop_toBottomOf="@+id/textViewMdpConfirm" />
+        android:inputType="textPassword" />
 
     <TextView
         android:id="@+id/textViewDejaInscrit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/inscriptionButton"
         android:layout_marginTop="8dp"
-        android:text="Déjà inscrit?"
-        app:layout_constraintEnd_toEndOf="@+id/inscriptionButton"
-        app:layout_constraintHorizontal_bias="0.454"
-        app:layout_constraintStart_toStartOf="@+id/inscriptionButton"
-        app:layout_constraintTop_toBottomOf="@+id/inscriptionButton" />
+        android:text="Déjà inscrit?" />
 
     <EditText
         android:id="@+id/emailEditText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/textViewEmailInscrip"
         android:layout_marginTop="8dp"
         android:ems="10"
-        android:inputType="textEmailAddress"
-        app:layout_constraintEnd_toEndOf="@+id/textViewEmailInscrip"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="@+id/textViewEmailInscrip"
-        app:layout_constraintTop_toBottomOf="@+id/textViewEmailInscrip" />
+        android:inputType="textEmailAddress" />
 
     <Button
         android:id="@+id/inscriptionButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/mdpConfirmEditText"
         android:layout_marginTop="24dp"
-        android:text="Valider"
-        app:layout_constraintEnd_toEndOf="@+id/mdpConfirmEditText"
-        app:layout_constraintStart_toStartOf="@+id/mdpConfirmEditText"
-        app:layout_constraintTop_toBottomOf="@+id/mdpConfirmEditText" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        android:text="Valider" />
+</RelativeLayout>

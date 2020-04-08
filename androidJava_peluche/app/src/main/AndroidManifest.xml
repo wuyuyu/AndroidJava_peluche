@@ -16,14 +16,15 @@
         android:roundIcon="@mipmap/panda_icone_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar">
+        <activity android:name=".DeconnexionActivity"></activity>
         <activity
             android:name=".MonCompteScrollingActivity"
             android:label="@string/title_activity_mon_compte_scrolling"
-            android:theme="@style/AppTheme.NoActionBar.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar.NoActionBar" />
         <activity android:name=".InscriptionActivity" />
         <activity android:name=".ConnexionActivity" />
         <activity android:name=".BoutiqueActivity" />
-        <activity android:name=".ComptinesListeActivity"></activity>
+        <activity android:name=".ComptinesListeActivity" />
         <activity android:name=".AproposActivity" />
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.

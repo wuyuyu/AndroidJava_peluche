@@ -4,18 +4,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fitsSystemWindows="true"
-    tools:context=".MonCompteScrollingActivity">
+    tools:context=".DeconnexionActivity">
 
     <include
         android:id="@+id/toolbar"
         layout="@layout/toolbar" />
 
-    <include
-        layout="@layout/content_mon_compte_scrolling"
+    <Button
+        android:id="@+id/deconnexionButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
         android:layout_below="@+id/toolbar"
-        android:layout_marginTop="0dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-
+        android:layout_marginTop="300dp"
+        android:text="Se déconnecter" />
 </RelativeLayout>

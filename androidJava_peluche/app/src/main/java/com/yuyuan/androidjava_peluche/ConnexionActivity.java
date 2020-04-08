@@ -34,6 +34,12 @@ public class ConnexionActivity extends AppCompatActivity {
         // Initialize Firebase Auth
         mAuth = FirebaseAuth.getInstance();
 
+        FirebaseUser user = mAuth.getCurrentUser();
+        if (user != null) {
+            // User is signed in
+            goToDeconnexion();
+        }
+            // No user is signed in
         mailEditText = findViewById(R.id.mailEditText);
 
         mdpConnexionEditText = findViewById(R.id.mdpConnexionEditText);
@@ -110,5 +116,10 @@ public class ConnexionActivity extends AppCompatActivity {
         final Intent intentInscription = new Intent(this, InscriptionActivity.class);
          //intentInscription.putExtra("mAuth" , (Parcelable) mAuth);
         startActivity(intentInscription);
+    }
+
+    private void goToDeconnexion(){
+        final Intent intentDeconnexion = new Intent(this , DeconnexionActivity.class);
+        startActivity(intentDeconnexion);
     }
 }

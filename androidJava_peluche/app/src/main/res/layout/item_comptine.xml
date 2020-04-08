@@ -4,43 +4,39 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/constraintLayoutItemFilm"
     android:layout_width="match_parent"
-    android:layout_height="200dp"
-    >
-
-    <TextView
-        android:id="@+id/textViewDivers"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/textViewNomComptine"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="@+id/textViewNomComptine"
-        app:layout_constraintTop_toBottomOf="@+id/textViewDate"
-        tools:text="Divers" />
+    android:layout_height="200dp">
 
     <TextView
         android:id="@+id/textViewDate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        app:layout_constraintEnd_toEndOf="@+id/textViewNomComptine"
+        app:layout_constraintEnd_toStartOf="@+id/imageButtonPlay"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="@+id/textViewNomComptine"
-        app:layout_constraintTop_toBottomOf="@+id/textViewNomComptine"
+        app:layout_constraintStart_toEndOf="@+id/textViewNomComptine"
+        app:layout_constraintTop_toTopOf="@+id/textViewNomComptine"
         tools:text="Date" />
 
     <TextView
         android:id="@+id/textViewNomComptine"
-        android:layout_width="219dp"
+        android:layout_width="100dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
         android:gravity="center"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/textViewDate"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/textViewDate"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/imageViewComptineImage"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/imageViewComptineImage"
         tools:text="Nom" />
+
+    <ImageButton
+        android:id="@+id/imageButtonPlay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/textViewDate"
+        app:layout_constraintTop_toTopOf="@+id/textViewDate"
+        app:srcCompat="@android:drawable/ic_media_play" />
 
     <ImageView
         android:id="@+id/imageViewComptineImage"
@@ -68,4 +64,14 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textViewDivers"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        app:layout_constraintEnd_toEndOf="@+id/imageButtonPlay"
+        app:layout_constraintStart_toStartOf="@+id/textViewNomComptine"
+        app:layout_constraintTop_toBottomOf="@+id/textViewDate"
+        tools:text="Divers" />
 </androidx.constraintlayout.widget.ConstraintLayout>

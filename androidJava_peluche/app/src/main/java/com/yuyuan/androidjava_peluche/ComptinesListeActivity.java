@@ -1,18 +1,12 @@
 package com.yuyuan.androidjava_peluche;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.View;
-import android.widget.Button;
-import android.widget.ImageButton;
-import android.widget.RadioButton;
-import android.widget.RadioGroup;
 
 import org.jetbrains.annotations.NotNull;
 import org.json.JSONArray;
@@ -30,8 +24,10 @@ import okhttp3.Request;
 import okhttp3.Response;
 
 public class ComptinesListeActivity extends AppCompatActivity {
-    private List<Comptine> comptineList;
+    private List<Comptine> comptineList = new ArrayList<>();
     private ComptineAdapter adapter;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,14 +35,15 @@ public class ComptinesListeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_comptines_liste);
 
         //Intent srcIntent = getIntent();
-
         //comptineList = srcIntent.getParcelableArrayListExtra("ComptineList");
 
-        loadDataFromApi();
+
         adapter = new ComptineAdapter(comptineList);
         RecyclerView recyclerView = findViewById(R.id.recyclerViewComptines);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(adapter);
+        loadDataFromApi();
+
 
     }
 
@@ -73,7 +70,7 @@ public class ComptinesListeActivity extends AppCompatActivity {
                     JSONObject jsonBody = new JSONObject(body);
                     JSONArray results = jsonBody.getJSONArray("results");
 
-                    ArrayList<Comptine> comptineList = new ArrayList();
+
                     // boucle pour enregistrer les films dans une liste
 
                     for (int i = 0; i < results.length(); i++) {
@@ -92,6 +89,12 @@ public class ComptinesListeActivity extends AppCompatActivity {
                         comptineList.add(new Comptine(comptineImage,nom,date,divers));
 
                     }
+                    runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            adapter.notifyDataSetChanged();
+                        }
+                    });
                     System.out.println(comptineList.get(3).toString());
 
 

@@ -3,6 +3,7 @@ package com.yuyuan.androidjava_peluche;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -33,15 +34,17 @@ public class ComptineAdapter extends RecyclerView.Adapter<ComptineAdapter.ViewHo
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         Comptine comptine = comptineList.get(position);
-        
-        
-        Picasso.get().load(comptineList.get(position).imageComptine);
-
         Picasso.get().load(comptineList.get(position).imageComptine).into(holder.imageComptine);
-        
         holder.date.setText(comptine.getDate());
         holder.nom.setText(comptine.getNom());
         holder.divers.setText(comptine.getDivers());
+        holder.imageButtonPlay.setOnClickListener(new View.OnClickListener(){
+
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
     }
 
     @Override
@@ -54,6 +57,7 @@ public class ComptineAdapter extends RecyclerView.Adapter<ComptineAdapter.ViewHo
         final TextView nom;
         final TextView date;
         final TextView divers;
+        final ImageButton imageButtonPlay;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -61,6 +65,7 @@ public class ComptineAdapter extends RecyclerView.Adapter<ComptineAdapter.ViewHo
             nom = itemView.findViewById(R.id.textViewNomComptine);
             date = itemView.findViewById(R.id.textViewDate);
             divers = itemView.findViewById(R.id.textViewDivers);
+            imageButtonPlay = itemView.findViewById(R.id.imageButtonPlay);
         }
     }
 }

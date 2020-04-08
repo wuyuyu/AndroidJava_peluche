@@ -92,6 +92,7 @@ public class MainActivity extends AppCompatActivity {
     }
     private void goToApropos() {
         final Intent intentApropos = new Intent(this,AproposActivity.class);
+        intentApropos.putExtra("TextViewVersion","V.1.2.3");
         startActivity(intentApropos);
     }
 }

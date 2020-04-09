@@ -27,4 +27,4 @@
         app:layout_constraintStart_toStartOf="@+id/textView5"
         app:layout_constraintTop_toBottomOf="@+id/textView5"
         tools:text="version" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+</RelativeLayout>

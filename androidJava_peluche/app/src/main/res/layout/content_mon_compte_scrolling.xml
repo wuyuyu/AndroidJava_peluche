@@ -9,104 +9,130 @@
     tools:showIn="@layout/activity_mon_compte_scrolling">
 
     <LinearLayout
-        android:id="@+id/profilLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="center_horizontal"
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/textViewAvatarSélection"
+            android:id="@+id/textViewMonCompte"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="36dp"
+            android:gravity="center"
+            android:text="Mon Compte"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+
+        <TextView
+            android:id="@+id/textViewAvatarSelection"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="36dp"
             android:text="Sélectionnez votre avatar :" />
 
         <RadioGroup
             android:id="@+id/avatarRadioGroup"
-            android:layout_width="330dp"
-            android:layout_height="330dp"
-            android:layout_marginTop="16dp"
-            app:layout_constraintEnd_toEndOf="@+id/textViewSelectionAvatar"
-            app:layout_constraintStart_toStartOf="@+id/textViewSelectionAvatar"
-            app:layout_constraintTop_toBottomOf="@+id/textViewSelectionAvatar">
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_marginTop="20dp"
+            android:background="#8BEDBE"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="@+id/textViewAvatarSelection"
+            app:layout_constraintStart_toStartOf="@+id/textViewAvatarSelection"
+            app:layout_constraintTop_toBottomOf="@+id/textViewAvatarSelection">
 
-            <TableLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
+            <RadioButton
+                android:id="@+id/avatar1RadioButton"
+                android:layout_width="30dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:layout_marginLeft="5dp"
+                android:background="@drawable/avatar_selector"
+                android:button="@drawable/ic_cat_30dp"
+                android:onClick="onAvatarSelected" />
 
-                <TableRow
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+            <RadioButton
+                android:id="@+id/avatar2RadioButton"
+                android:layout_width="30dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:layout_marginLeft="10dp"
+                android:onClick="onAvatarSelected"
+                android:background="@drawable/avatar_selector"
+                android:button="@drawable/ic_pig_30dp" />
 
-                    <RadioButton
-                        android:id="@+id/avatar1RadioButton"
-                        android:layout_width="110dp"
-                        android:layout_height="110dp"
-                        android:button="@drawable/chat" />
+            <RadioButton
+                android:id="@+id/avatar3RadioButton"
+                android:layout_width="30dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:layout_marginLeft="10dp"
+                android:onClick="onAvatarSelected"
+                android:background="@drawable/avatar_selector"
+                android:button="@drawable/ic_hamster_30dp" />
 
-                    <RadioButton
-                        android:id="@+id/avatar2RadioButton"
-                        android:layout_width="110dp"
-                        android:layout_height="110dp"
-                        android:button="@drawable/cochon" />
 
-                    <RadioButton
-                        android:id="@+id/avatar3RadioButton"
-                        android:layout_width="110dp"
-                        android:layout_height="110dp"
-                        android:button="@drawable/hamster" />
-                </TableRow>
+            <RadioButton
+                android:id="@+id/avatar4RadioButton"
+                android:layout_width="30dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:layout_marginLeft="10dp"
+                android:onClick="onAvatarSelected"
+                android:checked="true"
+                android:background="@drawable/avatar_selector"
+                android:button="@drawable/ic_panda_30dp" />
 
-                <TableRow
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+            <RadioButton
+                android:id="@+id/avatar5RadioButton"
+                android:layout_width="30dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:layout_marginLeft="10dp"
+                android:onClick="onAvatarSelected"
+                android:background="@drawable/avatar_selector"
+                android:button="@drawable/ic_lion_30dp" />
 
-                    <RadioButton
-                        android:id="@+id/avatar4RadioButton"
-                        android:layout_width="110dp"
-                        android:layout_height="110dp"
-                        android:button="@drawable/panda_a" />
+            <RadioButton
+                android:id="@+id/avatar6RadioButton"
+                android:layout_width="30dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:layout_marginLeft="10dp"
+                android:onClick="onAvatarSelected"
+                android:background="@drawable/avatar_selector"
+                android:button="@drawable/ic_monkey_30dp" />
 
-                    <RadioButton
-                        android:id="@+id/avatar5RadioButton"
-                        android:layout_width="110dp"
-                        android:layout_height="110dp"
-                        android:button="@drawable/lion" />
+            <RadioButton
+                android:id="@+id/avatar7RadioButton"
+                android:layout_width="30dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:layout_marginLeft="10dp"
+                android:onClick="onAvatarSelected"
+                android:background="@drawable/avatar_selector"
+                android:button="@drawable/ic_owl_30dp" />
 
-                    <RadioButton
-                        android:id="@+id/avatar6RadioButton"
-                        android:layout_width="110dp"
-                        android:layout_height="110dp"
-                        android:button="@drawable/singe" />
-                </TableRow>
+            <RadioButton
+                android:id="@+id/avatar8RadioButton"
+                android:layout_width="30dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:layout_marginLeft="10dp"
+                android:onClick="onAvatarSelected"
+                android:background="@drawable/avatar_selector"
+                android:button="@drawable/ic_rodent_30dp" />
 
-                <TableRow
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-
-                    <RadioButton
-                        android:id="@+id/avatar7RadioButton"
-                        android:layout_width="110dp"
-                        android:layout_height="110dp"
-                        android:button="@drawable/hibou"
-                        android:text="RadioButton" />
-
-                    <RadioButton
-                        android:id="@+id/avatar8RadioButton"
-                        android:layout_width="110dp"
-                        android:layout_height="110dp"
-                        android:button="@drawable/souris"
-                        android:text="RadioButton" />
-
-                    <RadioButton
-                        android:id="@+id/avatar9RadioButton"
-                        android:layout_width="110dp"
-                        android:layout_height="110dp"
-                        android:button="@drawable/chien"
-                        android:text="RadioButton" />
-                </TableRow>
-
-            </TableLayout>
+            <RadioButton
+                android:id="@+id/avatar9RadioButton"
+                android:layout_width="30dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="5dp"
+                android:onClick="onAvatarSelected"
+                android:background="@drawable/avatar_selector"
+                android:button="@drawable/ic_dog_30dp" />
 
         </RadioGroup>
 
@@ -114,6 +140,7 @@
             android:id="@+id/nomEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="36dp"
             android:ems="10"
             android:inputType="textPersonName"
             android:text="Nom : " />
@@ -122,6 +149,7 @@
             android:id="@+id/prenomEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
             android:ems="10"
             android:inputType="textPersonName"
             android:text="Prénom :" />
@@ -130,6 +158,7 @@
             android:id="@+id/pseudoEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
             android:background="#FFFFFF"
             android:ems="10"
             android:inputType="textPersonName"
@@ -139,12 +168,14 @@
             android:id="@+id/ageTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
             android:text="Age de votre enfant :" />
 
         <EditText
             android:id="@+id/ageEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
             android:ems="10"
             android:inputType="number" />
 
@@ -152,6 +183,7 @@
             android:id="@+id/monCompteButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
             android:text="Valider" />
 
     </LinearLayout>

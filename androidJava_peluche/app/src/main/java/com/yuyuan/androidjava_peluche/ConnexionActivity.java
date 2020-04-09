@@ -114,8 +114,8 @@ public class ConnexionActivity extends AppCompatActivity {
 
     private void goToInscription() {
         final Intent intentInscription = new Intent(this, InscriptionActivity.class);
-         //intentInscription.putExtra("mAuth" , (Parcelable) mAuth);
         startActivity(intentInscription);
+        finish();
     }
 
     private void goToDeconnexion(){

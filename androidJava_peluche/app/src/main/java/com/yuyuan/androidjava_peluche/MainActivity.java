@@ -111,11 +111,13 @@ public class MainActivity extends AppCompatActivity {
     private void goToDeconnexion() {
         final Intent intentDeconnexion = new Intent(this, DeconnexionActivity.class);
         startActivity(intentDeconnexion);
+        finish();
     }
 
     private void goToMonCompte() {
         final Intent intentMonCompte = new Intent(this , MonCompteScrollingActivity.class);
         startActivity(intentMonCompte);
+        finish();
     }
 
     private void gotoComptines() {
@@ -131,6 +133,7 @@ public class MainActivity extends AppCompatActivity {
     private void goToConnection() {
         final Intent intentConnection = new Intent(this, ConnexionActivity.class);
         startActivity(intentConnection);
+        finish();
     }
     private void goToBoutique() {
         final Intent intentBoutique = new Intent(this, BoutiqueActivity.class);

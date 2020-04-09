@@ -26,4 +26,12 @@
 
     <style name="AppTheme.NoActionBar.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
+    <style name="SelectedButton">
+        <item name="color">@color/rosegold</item>
+        <item name="android:shadowDx">-1.0</item>
+        <item name="android:shadowDy">-1.0</item>
+        <item name="android:shadowRadius">-1.5</item>
+        <item name="android:shadowColor">@color/gold</item>
+    </style>
+
 </resources>

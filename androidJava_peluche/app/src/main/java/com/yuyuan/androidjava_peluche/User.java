@@ -1,5 +1,7 @@
 package com.yuyuan.androidjava_peluche;
 
+import androidx.annotation.NonNull;
+
 import com.google.firebase.database.IgnoreExtraProperties;
 
 @IgnoreExtraProperties
@@ -25,4 +27,12 @@ public class User {
         this.userChildAge = age;
     }
 
+    @NonNull
+    @Override
+    public String toString() {
+        return ("id = " + this.userId + ", avatar = " + this.userAvatar + ", nom = "
+                + this.userLastName + ", prenom = " + this.userFirstName + ", pseudo = "
+                + this.userNickName + ", age = " + this.userChildAge);
+
+    }
 }

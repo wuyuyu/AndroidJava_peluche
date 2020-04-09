@@ -6,25 +6,25 @@
     android:layout_height="match_parent"
     tools:context=".AproposActivity">
 
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar" />
+
     <TextView
         android:id="@+id/textView5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/TextViewVersion"
         android:layout_marginTop="200dp"
-        android:text="by Tania,Yuyuan"
-        app:layout_constraintBottom_toTopOf="@+id/TextViewVersion"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:text="by Tania,Yuyuan" />
 
     <TextView
         android:id="@+id/TextViewVersion"
         android:layout_width="43dp"
         android:layout_height="23dp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/toolbar"
         android:layout_marginTop="100dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/textView5"
-        app:layout_constraintStart_toStartOf="@+id/textView5"
-        app:layout_constraintTop_toBottomOf="@+id/textView5"
         tools:text="version" />
 </RelativeLayout>

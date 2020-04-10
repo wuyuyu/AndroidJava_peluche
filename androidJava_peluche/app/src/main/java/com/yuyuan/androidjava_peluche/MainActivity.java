@@ -1,5 +1,6 @@
 package com.yuyuan.androidjava_peluche;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -7,12 +8,17 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -26,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
     private Button buttonForum;
     private Button buttonApropos;
     private String userId;
+    private DatabaseReference mDatabase;
 
 
     @Override
@@ -34,8 +41,11 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         setTitle("Peluche Connectée");
 
+
         // Initialize Firebase Auth
         mAuth = FirebaseAuth.getInstance();
+        mDatabase = FirebaseDatabase.getInstance().getReference();
+
 
         welcomeTextView = findViewById(R.id.welcomeTextView);
         buttonMonCompte = findViewById(R.id.monCompteButton);
@@ -46,6 +56,71 @@ public class MainActivity extends AppCompatActivity {
         if (user != null) {
             // User is signed in
             userId = user.getUid();
+            DatabaseReference ref = mDatabase.child("utilisateurs").child(userId);
+
+            if (ref != null) {
+
+                ValueEventListener utilisateurListener = new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                        User utilisateur = dataSnapshot.getValue(User.class);
+                        if(utilisateur != null) {
+                            if (utilisateur.userFirstName != null) {
+                                welcomeTextView.setText("Bienvenue " + utilisateur.userNickName);
+                            }
+                            if (utilisateur.userAvatar != null) {
+                                final RadioGroup radioGroup = (RadioGroup) findViewById(R.id.avatarRadioGroup);
+                                RadioButton selectAvatar = findViewById(R.id.avatar4RadioButton);
+                                switch (utilisateur.userAvatar) {
+                                    case "chat":
+                                        selectAvatar = findViewById(R.id.avatar1RadioButton);
+                                        break;
+
+                                    case "cochon":
+                                        selectAvatar = findViewById(R.id.avatar2RadioButton);
+                                        break;
+
+                                    case "hamster":
+                                        selectAvatar = findViewById(R.id.avatar3RadioButton);
+                                        break;
+
+                                    case "panda":
+                                        selectAvatar = findViewById(R.id.avatar4RadioButton);
+                                        break;
+
+                                    case "lion":
+                                        selectAvatar = findViewById(R.id.avatar5RadioButton);
+                                        break;
+
+                                    case "singe":
+                                        selectAvatar = findViewById(R.id.avatar6RadioButton);
+                                        break;
+
+                                    case "hibou":
+                                        selectAvatar = findViewById(R.id.avatar7RadioButton);
+                                        break;
+
+                                    case "souris":
+                                        selectAvatar = findViewById(R.id.avatar8RadioButton);
+                                        break;
+
+                                    case "chien":
+                                        selectAvatar = findViewById(R.id.avatar9RadioButton);
+                                        break;
+                                }
+                            }
+                            //Log.i(TAG, "onDataChange: " + utilisateur);
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                    }
+
+                };
+                ref.addValueEventListener(utilisateurListener);
+            }
             buttonMonCompte.setVisibility(View.VISIBLE);
             buttonMonCompte.setOnClickListener(new View.OnClickListener() {
                 @Override

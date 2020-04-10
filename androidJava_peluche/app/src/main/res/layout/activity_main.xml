@@ -11,23 +11,25 @@
         layout="@layout/toolbar" />
 
     <TextView
-        android:id="@+id/TextView"
-        android:layout_width="250dp"
+        android:id="@+id/TextViewAcceuil"
+        android:layout_width="150dp"
         android:layout_height="50dp"
-        android:layout_centerHorizontal="true"
         android:layout_below="@+id/toolbar"
+        android:layout_centerHorizontal="true"
         android:layout_marginTop="29dp"
         android:background="@drawable/fond_logo"
         android:fontFamily="cursive"
         android:gravity="center"
-        android:text="Peluche Connectée"
-        android:textSize="18sp" />
+        android:text="Acceuil"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textSize="24sp"
+        android:textStyle="bold" />
 
     <ImageView
         android:id="@+id/imageViewPandaAccueil"
         android:layout_width="wrap_content"
         android:layout_height="150dp"
-        android:layout_below="@+id/TextView"
+        android:layout_below="@+id/TextViewAcceuil"
         android:layout_marginTop="8dp"
         app:srcCompat="@drawable/panda" />
 

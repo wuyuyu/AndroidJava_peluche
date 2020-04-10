@@ -54,9 +54,9 @@ public class MonCompteScrollingActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_mon_compte_scrolling);
 
-        nomEditText = findViewById(R.id.nomEditText);
-        prenomEditText = findViewById(R.id.prenomEditText);
-        pseudoEditText = findViewById(R.id.pseudoEditText);
+        nomEditText = findViewById(R.id.nomTextInputEditText);
+        prenomEditText = findViewById(R.id.prenomTextInputEditText);
+        pseudoEditText = findViewById(R.id.pseudoTextInputEditText);
         ageEditText = findViewById(R.id.ageEditText);
         monCompteButton = findViewById(R.id.monCompteButton);
 
@@ -146,8 +146,9 @@ public class MonCompteScrollingActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 avatar = onAvatarSelected(v);
-                collectInfo(avatar);
-                goToAcceuil();
+                if(collectInfo(avatar) == true) {
+                    goToAcceuil();
+                }
             }
         });
 
@@ -161,17 +162,22 @@ public class MonCompteScrollingActivity extends AppCompatActivity {
         finish();
     }
 
-    private void collectInfo(String avatar) {
+    private boolean collectInfo(String avatar) {
         nom = nomEditText.getText().toString();
         prenom = prenomEditText.getText().toString();
         pseudo = pseudoEditText.getText().toString();
         age = ageEditText.getText().toString();
 
-        User user = new User(userId, avatar, nom, prenom, pseudo, age);
-
-        Log.i(TAG, "user is " + user.toString());
-
-        mDatabase.child("utilisateurs").child(userId).setValue(user);
+        if(nom.isEmpty() || prenom.isEmpty() || pseudo.isEmpty() || age.isEmpty()){
+            Toast.makeText(MonCompteScrollingActivity.this, "Veuillez remplir tous les champs et sélectionner un avatar", Toast.LENGTH_SHORT)
+                    .show();
+            return false;
+        } else {
+            User user = new User(userId, avatar, nom, prenom, pseudo, age);
+            Log.i(TAG, "user is " + user.toString());
+            mDatabase.child("utilisateurs").child(userId).setValue(user);
+            return true;
+        }
     }
 
     public String onAvatarSelected(View view) {
@@ -216,7 +222,7 @@ public class MonCompteScrollingActivity extends AppCompatActivity {
                 break;
 
             default:
-                Toast.makeText(MonCompteScrollingActivity.this, "Veuillez selectionner un avatar", Toast.LENGTH_SHORT)
+                Toast.makeText(MonCompteScrollingActivity.this, "Veuillez sélectionner un avatar", Toast.LENGTH_SHORT)
                         .show();
                 avatar = null;
             }

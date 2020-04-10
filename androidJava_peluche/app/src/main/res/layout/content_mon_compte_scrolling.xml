@@ -16,12 +16,16 @@
 
         <TextView
             android:id="@+id/textViewMonCompte"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="150dp"
+            android:layout_height="50dp"
             android:layout_marginTop="36dp"
+            android:background="@drawable/fond_logo"
+            android:fontFamily="cursive"
             android:gravity="center"
             android:text="Mon Compte"
-            android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:textSize="24sp"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/textViewAvatarSelection"
@@ -136,39 +140,55 @@
 
         </RadioGroup>
 
-        <EditText
-            android:id="@+id/nomEditText"
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textInputLayoutProfilNom"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="36dp"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:text="Nom : " />
+            android:layout_height="match_parent"
+            android:layout_marginTop="36dp">
 
-        <EditText
-            android:id="@+id/prenomEditText"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:text="Prénom :" />
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/nomTextInputEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Nom : " />
 
-        <EditText
-            android:id="@+id/pseudoEditText"
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textInputLayoutProfilPrenom"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:background="#FFFFFF"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:text="Pseudo : " />
+            android:layout_height="match_parent"
+            android:layout_marginTop="20dp" >
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/prenomTextInputEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Prénom : " />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textInputLayoutProfilPseudo"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="20dp" >
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/pseudoTextInputEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Pseudo : " />
+            wrap_content"
+            android:hint="hint" />
+        </com.google.android.material.textfield.TextInputLayout>
 
         <TextView
             android:id="@+id/ageTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="30dp"
+            android:layout_gravity="left"
             android:text="Age de votre enfant :" />
 
         <EditText

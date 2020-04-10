@@ -11,90 +11,169 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/textView1"
+            android:id="@+id/textViewContact"
+            android:layout_width="150dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="36dp"
+            android:background="@drawable/fond_logo"
+            android:fontFamily="cursive"
+            android:gravity="center"
+            android:text="Contact"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/textViewAidezNous"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="36dp"
             android:text="Aidez-nous à concevoir la peluche idéale! " />
 
         <TextView
-            android:id="@+id/textView2"
+            android:id="@+id/textViewQuestion1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Combien seriez-vous prêts à payer pour cette peluche? " />
+            android:layout_marginTop="18dp"
+            android:text="Combien seriez-vous prêt(e) à payer pour cette peluche? " />
 
         <RadioGroup
+            android:id="@+id/radioGroupQuestion1"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:layout_marginTop="8dp" >
 
             <RadioButton
-                android:id="@+id/radioButton3"
+                android:id="@+id/radioButtonPropPrix1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Entre 30 et 50€" />
 
             <RadioButton
-                android:id="@+id/radioButton2"
+                android:id="@+id/radioButtonPropPrix2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Entre 50 et 70€" />
 
             <RadioButton
-                android:id="@+id/radioButton"
+                android:id="@+id/radioButtonPropPrix3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Entre 70 et 90€" />
         </RadioGroup>
 
         <TextView
-            android:id="@+id/textView3"
+            android:id="@+id/textViewQuestion2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
             android:text="Quelle fonctionalité pensez-vous nécessaire? " />
 
         <CheckBox
-            android:id="@+id/checkBox"
+            android:id="@+id/checkBoxPropFonction1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
             android:text="Babyphone" />
 
         <CheckBox
-            android:id="@+id/checkBox2"
+            android:id="@+id/checkBoxPropFonction2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Visiophone" />
 
         <CheckBox
-            android:id="@+id/checkBox3"
+            android:id="@+id/checkBoxPropFonction3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Veilleuse" />
 
         <CheckBox
-            android:id="@+id/checkBox4"
+            android:id="@+id/checkBoxPropFonction4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Thermomètre" />
 
         <CheckBox
-            android:id="@+id/checkBox5"
+            android:id="@+id/checkBoxPropFonction5"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Dictaphone" />
 
         <TextView
+            android:id="@+id/textViewQuestion3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="Souhaiteriez-vous un contenu disponible en langue étrangère?" />
+
+        <RadioGroup
+            android:id="@+id/radioGroupQuestion3"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="8dp" >
+
+        <RadioButton
+            android:id="@+id/radioButtonOuiQ3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Oui" />
+
+        <RadioButton
+            android:id="@+id/radioButtonNonQ3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Non" />
+
+        </RadioGroup>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textInputLayoutQ3b"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="24dp" >
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/textInputEditTextQ3b"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Si oui, la(les)quelle(s)?" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <EditText
+            android:id="@+id/suggestionEditText"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_marginTop="16dp"
+            android:ems="10"
+            android:hint="Quelques suggestions"
+            android:inputType="textMultiLine" />
+
+        <Button
+            android:id="@+id/contactButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="Valider" />
+
+        <TextView
             android:id="@+id/textView4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
             android:text="Vous pouvez nous retrouver ici" />
 
         <fragment
             android:id="@+id/fragment"
             android:name="com.yuyuan.androidjava_peluche.CarteFragment"
             android:layout_width="match_parent"
-            android:layout_height="250dp" />
+            android:layout_height="250dp"
+            android:layout_marginTop="8dp" />
 
     </LinearLayout>
 </androidx.core.widget.NestedScrollView>

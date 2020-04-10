@@ -50,8 +50,6 @@ public class InscriptionActivity extends AppCompatActivity {
             public void onClick(View v) {
                 if(checkMail() == true && checkPassword()== true){
                     signIn();
-                    goToMonCompte();
-                    finish();
                 }
             }
         });
@@ -102,12 +100,12 @@ public class InscriptionActivity extends AppCompatActivity {
                             FirebaseUser user = mAuth.getCurrentUser();
                             Toast.makeText(InscriptionActivity.this, "Inscription réussie.",
                                     Toast.LENGTH_SHORT).show();
-                            //updateUI(user);
+                            goToMonCompte();
+                            finish();
                         } else {
                             // If sign in fails, display a message to the user.
                             Toast.makeText(InscriptionActivity.this, "Inscription échouée.",
                                     Toast.LENGTH_SHORT).show();
-                            //updateUI(null);
                         }
                     }
                 });

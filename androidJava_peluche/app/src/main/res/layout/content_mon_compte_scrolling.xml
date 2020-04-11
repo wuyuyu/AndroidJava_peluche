@@ -52,7 +52,7 @@
                 android:layout_gravity="center"
                 android:layout_marginLeft="5dp"
                 android:background="@drawable/avatar_selector"
-                android:button="@drawable/ic_cat_30dp"
+                android:button="@drawable/ic_chat_30dp"
                 android:onClick="onAvatarSelected" />
 
             <RadioButton
@@ -63,7 +63,7 @@
                 android:layout_marginLeft="10dp"
                 android:onClick="onAvatarSelected"
                 android:background="@drawable/avatar_selector"
-                android:button="@drawable/ic_pig_30dp" />
+                android:button="@drawable/ic_cochon_30dp" />
 
             <RadioButton
                 android:id="@+id/avatar3RadioButton"
@@ -105,7 +105,7 @@
                 android:layout_marginLeft="10dp"
                 android:onClick="onAvatarSelected"
                 android:background="@drawable/avatar_selector"
-                android:button="@drawable/ic_monkey_30dp" />
+                android:button="@drawable/ic_singe_30dp" />
 
             <RadioButton
                 android:id="@+id/avatar7RadioButton"
@@ -115,7 +115,7 @@
                 android:layout_marginLeft="10dp"
                 android:onClick="onAvatarSelected"
                 android:background="@drawable/avatar_selector"
-                android:button="@drawable/ic_owl_30dp" />
+                android:button="@drawable/ic_hibou_30dp" />
 
             <RadioButton
                 android:id="@+id/avatar8RadioButton"
@@ -125,7 +125,7 @@
                 android:layout_marginLeft="10dp"
                 android:onClick="onAvatarSelected"
                 android:background="@drawable/avatar_selector"
-                android:button="@drawable/ic_rodent_30dp" />
+                android:button="@drawable/ic_souris_30dp" />
 
             <RadioButton
                 android:id="@+id/avatar9RadioButton"
@@ -136,7 +136,7 @@
                 android:layout_marginRight="5dp"
                 android:onClick="onAvatarSelected"
                 android:background="@drawable/avatar_selector"
-                android:button="@drawable/ic_dog_30dp" />
+                android:button="@drawable/ic_chien_30dp" />
 
         </RadioGroup>
 

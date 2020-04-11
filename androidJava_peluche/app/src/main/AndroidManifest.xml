@@ -16,7 +16,9 @@
         android:roundIcon="@mipmap/panda_icone_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar">
-        <activity android:name=".DeconnexionActivity"></activity>
+        <activity android:name=".NewTopicActivity"></activity>
+        <activity android:name=".ForumActivity" />
+        <activity android:name=".DeconnexionActivity" />
         <activity
             android:name=".MonCompteScrollingActivity"
             android:label="@string/title_activity_mon_compte_scrolling"
@@ -40,6 +42,9 @@
         <meta-data
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
 
         <activity
             android:name=".ContactScrollingActivity"

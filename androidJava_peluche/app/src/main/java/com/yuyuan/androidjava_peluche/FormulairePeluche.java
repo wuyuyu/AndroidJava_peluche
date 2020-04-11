@@ -20,7 +20,7 @@ public class FormulairePeluche {
         public String reponse4;
 
         public FormulairePeluche() {
-            // Default constructor required for calls to DataSnapshot.getValue(Post.class)
+            // Default constructor required for calls to DataSnapshot.getValue(FormulairePeluche.class)
         }
 
         public FormulairePeluche(String answer1, ArrayList answer2, String answer3, String answer3b, String answer4) {

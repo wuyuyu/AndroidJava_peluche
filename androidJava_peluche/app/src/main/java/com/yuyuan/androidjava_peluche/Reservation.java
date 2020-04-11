@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-    @IgnoreExtraProperties
+@IgnoreExtraProperties
 
 public class Reservation {
 
@@ -18,7 +18,7 @@ public class Reservation {
         public String prixTotal;
 
         public Reservation() {
-            // Default constructor required for calls to DataSnapshot.getValue(Post.class)
+            // Default constructor required for calls to DataSnapshot.getValue(Reservation.class)
         }
 
         public Reservation(String email, int qte, String deliver, String prix) {

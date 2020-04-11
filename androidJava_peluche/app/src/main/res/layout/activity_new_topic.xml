@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".NewTopicActivity">
+
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar" />
+
+    <TextView
+        android:id="@+id/textViewNewTopic"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:layout_below="@+id/toolbar"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="80dp"
+        android:background="@drawable/fond_logo"
+        android:fontFamily="cursive"
+        android:gravity="center"
+        android:text="Nouveau sujet"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textSize="24sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/textViewChoixTopic"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textViewNewTopic"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="64dp"
+        android:gravity="center"
+        android:text="Créez votre sujet : " />
+
+    <TextView
+        android:id="@+id/dateTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textViewChoixTopic"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="24dp"
+        android:background="#A16EACAC"
+        android:fontFamily="casual"
+        android:text=" Date "
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/createurTopicTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/dateTextView"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"
+        android:background="#A16EACAC"
+        android:fontFamily="casual"
+        android:text="Auteur"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/topicEditText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/createurTopicTextView"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"
+        android:background="#A16EACAC"
+        android:ems="10"
+        android:fontFamily="casual"
+        android:gravity="center"
+        android:hint="Sujet"
+        android:inputType="textPersonName" />
+
+    <TextView
+        android:id="@+id/textViewEntrerMsg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/topicEditText"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"
+        android:gravity="center"
+        android:text="Entrer le 1er message :" />
+
+    <EditText
+        android:id="@+id/message1EditText"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textViewEntrerMsg"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/annie_use_your_telescope"
+        android:gravity="center"
+        android:inputType="textMultiLine" />
+
+    <Button
+        android:id="@+id/validerTopicButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/message1EditText"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="24dp"
+        android:background="#7CECB0"
+        android:fontFamily="casual"
+        android:text="Valider"
+        android:textSize="12sp"
+        android:textStyle="bold" />
+
+
+
+</RelativeLayout>

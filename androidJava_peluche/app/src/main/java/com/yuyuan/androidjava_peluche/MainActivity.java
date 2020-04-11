@@ -23,6 +23,8 @@ import com.google.firebase.database.ValueEventListener;
 public class MainActivity extends AppCompatActivity {
 
     private FirebaseAuth mAuth;
+    private DatabaseReference mDatabase;
+    private String userId;
     private TextView welcomeTextView;
     private Button buttonInscription;
     private Button buttonMonCompte;
@@ -31,9 +33,6 @@ public class MainActivity extends AppCompatActivity {
     private Button buttonComptines;
     private Button buttonForum;
     private Button buttonApropos;
-    private String userId;
-    private DatabaseReference mDatabase;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,6 +49,8 @@ public class MainActivity extends AppCompatActivity {
         welcomeTextView = findViewById(R.id.welcomeTextView);
         buttonMonCompte = findViewById(R.id.monCompteButton);
         buttonInscription = findViewById(R.id.buttonInscription);
+        buttonForum = findViewById(R.id.buttonForum);
+
 
         final FirebaseUser user = mAuth.getCurrentUser();
 
@@ -65,59 +66,14 @@ public class MainActivity extends AppCompatActivity {
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                         User utilisateur = dataSnapshot.getValue(User.class);
                         if(utilisateur != null) {
-                            if (utilisateur.userFirstName != null) {
+                            if (utilisateur.userNickName != null) {
                                 welcomeTextView.setText("Bienvenue " + utilisateur.userNickName);
                             }
-                            if (utilisateur.userAvatar != null) {
-                                final RadioGroup radioGroup = (RadioGroup) findViewById(R.id.avatarRadioGroup);
-                                RadioButton selectAvatar = findViewById(R.id.avatar4RadioButton);
-                                switch (utilisateur.userAvatar) {
-                                    case "chat":
-                                        selectAvatar = findViewById(R.id.avatar1RadioButton);
-                                        break;
-
-                                    case "cochon":
-                                        selectAvatar = findViewById(R.id.avatar2RadioButton);
-                                        break;
-
-                                    case "hamster":
-                                        selectAvatar = findViewById(R.id.avatar3RadioButton);
-                                        break;
-
-                                    case "panda":
-                                        selectAvatar = findViewById(R.id.avatar4RadioButton);
-                                        break;
-
-                                    case "lion":
-                                        selectAvatar = findViewById(R.id.avatar5RadioButton);
-                                        break;
-
-                                    case "singe":
-                                        selectAvatar = findViewById(R.id.avatar6RadioButton);
-                                        break;
-
-                                    case "hibou":
-                                        selectAvatar = findViewById(R.id.avatar7RadioButton);
-                                        break;
-
-                                    case "souris":
-                                        selectAvatar = findViewById(R.id.avatar8RadioButton);
-                                        break;
-
-                                    case "chien":
-                                        selectAvatar = findViewById(R.id.avatar9RadioButton);
-                                        break;
-                                }
-                            }
-                            //Log.i(TAG, "onDataChange: " + utilisateur);
                         }
                     }
-
                     @Override
                     public void onCancelled(@NonNull DatabaseError databaseError) {
-
                     }
-
                 };
                 ref.addValueEventListener(utilisateurListener);
             }
@@ -135,9 +91,16 @@ public class MainActivity extends AppCompatActivity {
                     goToDeconnexion();
                 }
             });
+            buttonForum.setVisibility(View.VISIBLE);
+            buttonForum.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    goToForum();
+                }
+            });
         } else {
             // No user is signed in
-            buttonMonCompte.setVisibility(View.INVISIBLE);
+            buttonMonCompte.setVisibility(View.GONE);
             buttonInscription.setText("Inscription/Connexion");
             buttonInscription.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -145,6 +108,7 @@ public class MainActivity extends AppCompatActivity {
                     goToConnection();
                 }
             });
+            buttonForum.setVisibility(View.GONE);
         }
         welcomeTextView.setText("Bienvenue");
 
@@ -181,6 +145,12 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    private void goToForum() {
+        final Intent intentForum = new Intent(this, ForumActivity.class);
+        startActivity(intentForum);
+        finish();
     }
 
     private void goToDeconnexion() {

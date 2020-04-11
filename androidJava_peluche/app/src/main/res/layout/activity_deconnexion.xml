@@ -10,12 +10,27 @@
         android:id="@+id/toolbar"
         layout="@layout/toolbar" />
 
+    <TextView
+        android:id="@+id/textViewDeconnexion"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:layout_below="@+id/toolbar"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="75dp"
+        android:background="@drawable/fond_logo"
+        android:fontFamily="cursive"
+        android:gravity="center"
+        android:text="Déconnexion"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textSize="24sp"
+        android:textStyle="bold" />
+
     <Button
         android:id="@+id/deconnexionButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_below="@+id/toolbar"
-        android:layout_marginTop="300dp"
+        android:layout_below="@+id/textViewDeconnexion"
+        android:layout_marginTop="170dp"
         android:text="Se déconnecter" />
 </RelativeLayout>

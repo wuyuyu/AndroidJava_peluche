@@ -11,6 +11,21 @@
         layout="@layout/toolbar" />
 
     <TextView
+        android:id="@+id/textViewConnexion"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:layout_below="@+id/toolbar"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="29dp"
+        android:background="@drawable/fond_logo"
+        android:fontFamily="cursive"
+        android:gravity="center"
+        android:text="Connexion "
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textSize="24sp"
+        android:textStyle="bold" />
+
+    <TextView
         android:id="@+id/textViewEmail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -51,8 +66,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_below="@+id/toolbar"
-        android:layout_marginTop="100dp"
+        android:layout_below="@+id/textViewConnexion"
+        android:layout_marginTop="80dp"
         android:text="Connectez-vous"
         android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 

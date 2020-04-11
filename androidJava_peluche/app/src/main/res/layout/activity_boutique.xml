@@ -10,15 +10,6 @@
         android:id="@+id/toolbar"
         layout="@layout/toolbar" />
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="200dp"
-        android:layout_height="200dp"
-        android:layout_centerHorizontal="true"
-        android:layout_below="@+id/textViewBoutique"
-        android:layout_marginTop="16dp"
-        app:srcCompat="@drawable/panda" />
-
     <TextView
         android:id="@+id/textViewBoutique"
         android:layout_width="150dp"
@@ -34,6 +25,15 @@
         android:textSize="24sp"
         android:textStyle="bold" />
 
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_below="@+id/textViewBoutique"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"
+        app:srcCompat="@drawable/panda" />
+
     <TextView
         android:id="@+id/textViewPrix"
         android:layout_width="wrap_content"
@@ -42,19 +42,6 @@
         android:layout_below="@+id/imageView"
         android:layout_marginTop="16dp"
         android:text="Prix: 29.99€" />
-
-    <EditText
-        android:id="@+id/editTextQuantite"
-        android:layout_width="30dp"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/textViewQuantite"
-        android:layout_alignEnd="@+id/textViewPrix"
-        android:layout_alignRight="@+id/textViewPrix"
-        android:layout_marginEnd="-7dp"
-        android:layout_marginRight="-7dp"
-        android:ems="10"
-        android:hint="1"
-        android:inputType="number" />
 
     <TextView
         android:id="@+id/textViewQuantite"
@@ -71,6 +58,19 @@
         android:layout_toStartOf="@+id/editTextQuantite"
         android:layout_toLeftOf="@+id/editTextQuantite"
         android:text="Quantité: " />
+
+    <EditText
+        android:id="@+id/editTextQuantite"
+        android:layout_width="30dp"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/textViewQuantite"
+        android:layout_alignEnd="@+id/textViewPrix"
+        android:layout_alignRight="@+id/textViewPrix"
+        android:layout_marginEnd="-7dp"
+        android:layout_marginRight="-7dp"
+        android:ems="10"
+        android:hint="1"
+        android:inputType="number" />
 
     <RadioGroup
         android:id="@+id/radioGroupLivraison"
@@ -94,15 +94,6 @@
 
     </RadioGroup>
 
-    <Button
-        android:id="@+id/buttonAcheter"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_below="@+id/radioGroupLivraison"
-        android:layout_marginTop="60dp"
-        android:text="Acheter" />
-
     <TextView
         android:id="@+id/textViewPrixTotal"
         android:layout_width="wrap_content"
@@ -112,6 +103,29 @@
         android:layout_marginTop="16dp"
         android:text="Total :"
         android:textColor="#ff0000" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/mailTextInputLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textViewPrixTotal"
+        android:layout_marginTop="8dp">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/mailTextInputEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Email :" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <Button
+        android:id="@+id/buttonAcheter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/mailTextInputLayout"
+        android:layout_marginTop="16dp"
+        android:text="Acheter" />
 
     <TextView
         android:id="@+id/description"

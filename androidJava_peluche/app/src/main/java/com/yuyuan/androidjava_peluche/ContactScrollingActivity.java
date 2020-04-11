@@ -102,7 +102,6 @@ public class ContactScrollingActivity extends AppCompatActivity {
                 collectInfo();
             }
         });
-
     }
 
     private void registerForm(String rep1, ArrayList rep2, String rep3, String rep3b, String rep4) {

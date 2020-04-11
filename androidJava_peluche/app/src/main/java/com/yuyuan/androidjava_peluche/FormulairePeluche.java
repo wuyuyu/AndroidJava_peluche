@@ -24,7 +24,6 @@ public class FormulairePeluche {
         }
 
         public FormulairePeluche(String answer1, ArrayList answer2, String answer3, String answer3b, String answer4) {
-            //this.uid = uid;
             this.reponse1 = answer1;
             this.reponse2 = answer2;
             this.reponse3 = answer3;
@@ -36,11 +35,11 @@ public class FormulairePeluche {
         public Map<String, Object> toMap() {
             HashMap<String, Object> reponse = new HashMap<>();
             reponse.put("uid", uid);
-            reponse.put("reponse1", reponse1);
-            reponse.put("reponse2", reponse2);
-            reponse.put("reponse3", reponse3);
-            reponse.put("reponse3b", reponse3b);
-            reponse.put("reponse4", reponse4);
+            reponse.put("Réponse 1", reponse1);
+            reponse.put("Réponse 2", reponse2);
+            reponse.put("Réponse 3", reponse3);
+            reponse.put("Réponse 3b", reponse3b);
+            reponse.put("Réponse 4", reponse4);
 
             return reponse;
         }

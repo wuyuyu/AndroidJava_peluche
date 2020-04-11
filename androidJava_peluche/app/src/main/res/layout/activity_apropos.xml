@@ -11,20 +11,39 @@
         layout="@layout/toolbar" />
 
     <TextView
-        android:id="@+id/textView5"
+        android:id="@+id/textViewAPropos"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:layout_below="@+id/toolbar"
+        android:layout_marginTop="100dp"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/fond_logo"
+        android:fontFamily="cursive"
+        android:gravity="center"
+        android:text="A propos"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textSize="24sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/TextViewVersion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textViewAPropos"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="100dp"
+        tools:text="version" />
+
+    <TextView
+        android:id="@+id/textViewDevTeam"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_below="@+id/TextViewVersion"
-        android:layout_marginTop="200dp"
-        android:text="by Tania,Yuyuan" />
+        android:layout_marginTop="150dp"
+        android:text="Application développé par Tania et Yuyuan" />
 
-    <TextView
-        android:id="@+id/TextViewVersion"
-        android:layout_width="43dp"
-        android:layout_height="23dp"
-        android:layout_centerHorizontal="true"
-        android:layout_below="@+id/toolbar"
-        android:layout_marginTop="100dp"
-        tools:text="version" />
+
+
+
 </RelativeLayout>

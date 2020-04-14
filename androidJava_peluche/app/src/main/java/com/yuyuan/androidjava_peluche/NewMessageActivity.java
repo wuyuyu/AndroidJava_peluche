@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -87,8 +88,9 @@ public class NewMessageActivity extends AppCompatActivity {
         validerMessageButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                creationMessage();
-                goToForumMessages();
+                if(creationMessage()==true) {
+                    goToForumMessages();
+                }
             }
         });
     }
@@ -100,14 +102,21 @@ public class NewMessageActivity extends AppCompatActivity {
         finish();
     }
 
-    private void creationMessage() {
+    private boolean creationMessage() {
         String message = messageEditText.getText().toString();
-        msg = new Message(utilisateur.userId , dateFormate , sujet , message);
-        String keyMsg = mDatabase.child("Messages").push().getKey();
-        Map<String, Object> msgValues = msg.toMap();
-        Map<String, Object> childUpdates = new HashMap<>();
-        childUpdates.put("/Messages/" + keyMsg, msgValues);
-        mDatabase.updateChildren(childUpdates);
-        mDatabase.child("Messages").child(keyMsg).setValue(msg);
+        if(!message.isEmpty()) {
+            msg = new Message(userId, dateFormate, sujet, message);
+            String keyMsg = mDatabase.child("Messages").push().getKey();
+            Map<String, Object> msgValues = msg.toMap();
+            Map<String, Object> childUpdates = new HashMap<>();
+            childUpdates.put("/Messages/" + keyMsg, msgValues);
+            mDatabase.updateChildren(childUpdates);
+            mDatabase.child("Messages" ).child(keyMsg).setValue(msg);
+            return true;
+        }else {
+            Toast.makeText(NewMessageActivity.this, "Veuillez entrer un message.", Toast.LENGTH_SHORT)
+                    .show();
+            return false;
+        }
     }
 }

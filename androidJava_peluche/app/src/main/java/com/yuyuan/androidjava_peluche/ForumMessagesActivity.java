@@ -16,6 +16,7 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
@@ -47,23 +48,38 @@ public class ForumMessagesActivity extends AppCompatActivity {
 
         mDatabase = FirebaseDatabase.getInstance().getReference();
         messages = new ArrayList<>();
-        final DatabaseReference ref = mDatabase.child("Messages");
+        DatabaseReference ref = mDatabase.child("Messages");
+        //Query orderedMessages = mDatabase.child("Messages").orderByChild("Date");
 
         if (ref != null) {
 
-            ValueEventListener topicListener = new ValueEventListener() {
+            ref.addValueEventListener (new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                     for (DataSnapshot postSnapshot: dataSnapshot.getChildren()) {
                         HashMap temp = (HashMap)postSnapshot.getValue();
                         Log.i(TAG, "onDataChange: temp" + temp);
                         u = (String)temp.get("Utilisateur");
+                        if (u == null){
+                            u = (String)temp.get("user");
+                        }
                         d = (String)temp.get("Date");
+                        if(d == null){
+                            d = (String)temp.get("date");
+                        }
                         t = (String)temp.get("Topic");
+                        if(t == null){
+                            t = (String)temp.get("topic");
+                        }
                         m = (String)temp.get("Message");
+                        if(m == null){
+                            m = (String)temp.get("message");
+                        }
+                        Log.i(TAG, "onDataChange: verif " + sujet + " " + t);
                         if (sujet.equals(t)){
                             Message msg = new Message(u , d , t , m);
                             messages.add(msg);
+                            Log.i(TAG, "onDataChange: in " + messages);
                         }
                     }
                     Log.i(TAG, "onDataChange: out " + messages);
@@ -75,8 +91,8 @@ public class ForumMessagesActivity extends AppCompatActivity {
                 @Override
                 public void onCancelled(@NonNull DatabaseError databaseError) {
                 }
-            };
-            ref.addValueEventListener(topicListener);
+            });
+
         }
         newMessageButton = findViewById(R.id.newMessageButton);
         newMessageButton.setOnClickListener(new View.OnClickListener() {

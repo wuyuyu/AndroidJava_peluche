@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -90,8 +91,9 @@ public class NewTopicActivity extends AppCompatActivity {
         validerTopicButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                creationTopic();
-                goToForum();
+                if(creationTopic() == true) {
+                    goToForum();
+                }
             }
         });
 
@@ -103,22 +105,35 @@ public class NewTopicActivity extends AppCompatActivity {
         finish();
     }
 
-    private void creationTopic() {
+    private boolean creationTopic() {
         nouveauSujet = topicEditText.getText().toString();
-        message = message1EditText.getText().toString();
-        Date maintenant = new Date();
-        SimpleDateFormat format = new SimpleDateFormat("dd/MM/YYYY HH:mm:ss");
-        String dateF = format.format(maintenant);
+        if(!nouveauSujet.isEmpty()) {
+            message = message1EditText.getText().toString();
+            if(!message.isEmpty()) {
+                Date maintenant = new Date();
+                SimpleDateFormat format = new SimpleDateFormat("dd/MM/YYYY HH:mm:ss");
+                String dateF = format.format(maintenant);
 
-        msg1 = new Message(utilisateur.userId , dateF , nouveauSujet , message);
-        String keyMsg = mDatabase.child("Messages").push().getKey();
-        Map<String, Object> msgValues = msg1.toMap();
-        Map<String, Object> childUpdates = new HashMap<>();
-        childUpdates.put("/Messages/" + keyMsg, msgValues);
-        mDatabase.updateChildren(childUpdates);
-        mDatabase.child("Messages").child(keyMsg).setValue(msg1);
+                msg1 = new Message(utilisateur.userId, dateF, nouveauSujet, message);
+                String keyMsg = mDatabase.child("Messages").push().getKey();
+                Map<String, Object> msgValues = msg1.toMap();
+                Map<String, Object> childUpdates = new HashMap<>();
+                childUpdates.put("/Messages/" + keyMsg, msgValues);
+                mDatabase.updateChildren(childUpdates);
+                mDatabase.child("Messages").child(keyMsg).setValue(msg1);
 
-        sujet = new Topic(utilisateur , dateFormate , nouveauSujet , msg1);
-        mDatabase.child("Topics").child(nouveauSujet).setValue(sujet);
+                sujet = new Topic(utilisateur, dateFormate, nouveauSujet, msg1);
+                mDatabase.child("Topics").child(nouveauSujet).setValue(sujet);
+                return true;
+            }else {
+                Toast.makeText(NewTopicActivity.this, "Veuillez entrer un message.", Toast.LENGTH_SHORT)
+                        .show();
+                return false;
+            }
+        }else {
+            Toast.makeText(NewTopicActivity.this, "Veuillez entrer un sujet.", Toast.LENGTH_SHORT)
+                    .show();
+            return false;
+        }
     }
 }

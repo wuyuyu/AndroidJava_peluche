@@ -40,7 +40,7 @@ public class ForumActivity extends AppCompatActivity {
         mDatabase = FirebaseDatabase.getInstance().getReference();
         topics = new ArrayList<>();
         final DatabaseReference ref = mDatabase.child("Topics");
-        Query orderedTopics = mDatabase.child("Topics").orderByChild("Date");
+        //Query orderedTopics = mDatabase.child("Topics").orderByChild("Date");
 
         if (ref != null) {
 
@@ -62,7 +62,7 @@ public class ForumActivity extends AppCompatActivity {
                 public void onCancelled(@NonNull DatabaseError databaseError) {
                 }
             };
-            orderedTopics.addValueEventListener(topicListener);
+            ref.addValueEventListener(topicListener);
         }
         newTopicButton = findViewById(R.id.newTopicButton);
         newTopicButton.setOnClickListener(new View.OnClickListener() {

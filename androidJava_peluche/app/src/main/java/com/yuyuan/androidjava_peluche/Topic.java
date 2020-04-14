@@ -1,18 +1,18 @@
 package com.yuyuan.androidjava_peluche;
 
-import com.google.firebase.database.Exclude;
+import androidx.annotation.NonNull;
+
+import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.IgnoreExtraProperties;
 
-import java.util.HashMap;
-import java.util.Map;
 
 @IgnoreExtraProperties
 public class Topic {
     public String uid;
-    public User user;
+    public String user;
     public String date;
     public String intitule;
-    public Message message1;
+
 
     public Topic() {
         // Default constructor required for calls to DataSnapshot.getValue(Topic.class)
@@ -20,20 +20,14 @@ public class Topic {
 
     public Topic(User utilisateur, String date, String titre, Message message1st) {
         this.uid = titre;
-        this.user = utilisateur;
+        this.user = utilisateur.userId;
         this.date = date;
         this.intitule = titre;
-        this.message1 = message1st;
     }
 
-    @Exclude
-    public Map<String, Object> toMap() {
-        HashMap<String, Object> title = new HashMap<>();
-        title.put("uid", uid);
-        title.put("Utilisateur", user.userId);
-        title.put("Date", date);
-        title.put("Topic", intitule);
-
-        return title;
+    @NonNull
+    @Override
+    public String toString() {
+        return(this.uid + "/" + this.date );
     }
 }

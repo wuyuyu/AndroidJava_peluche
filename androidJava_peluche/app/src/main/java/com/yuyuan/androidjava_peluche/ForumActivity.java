@@ -3,6 +3,8 @@ package com.yuyuan.androidjava_peluche;
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Build;
@@ -24,11 +26,14 @@ import java.util.Map;
 
 public class ForumActivity extends AppCompatActivity {
 
-    //private List<Topic> topics;
+    private List<Topic> topics;
     private Button newTopicButton;
     private FirebaseAuth mAuth;
     private DatabaseReference mDatabase;
+    private DataSnapshot postSnapshot;
     private String userId;
+    private TopicAdapter adapter;
+    String TAG = "forum";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,25 +42,30 @@ public class ForumActivity extends AppCompatActivity {
 
         mAuth = FirebaseAuth.getInstance();
         mDatabase = FirebaseDatabase.getInstance().getReference();
-        Log.i("Forum", "onCreate: " + mDatabase.child("Topics").getDatabase());
-        //topics = new ArrayList<>();
+        topics = new ArrayList<>();
         final DatabaseReference ref = mDatabase.child("Topics");
-
-        Log.i("forum", "onDataChange: " + ref);
 
         if (ref != null) {
 
-            ValueEventListener utilisateurListener = new ValueEventListener() {
+            ValueEventListener topicListener = new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                    Object topics = dataSnapshot.getValue(Object.class);
-                    Log.i("forum", "onDataChange: " + topics);
+                    for (DataSnapshot postSnapshot: dataSnapshot.getChildren()) {
+                        Topic sujet = postSnapshot.getValue(Topic.class);
+                        topics.add(sujet);
+                        Log.i(TAG, "onDataChange: " + topics);
+                    }
+                    Log.i(TAG, "onDataChange: out " + topics);
+                    adapter = new TopicAdapter(topics);
+                    RecyclerView topicRecyclerView = findViewById(R.id.topicRecyclerView);
+                    topicRecyclerView.setAdapter(adapter);
+                    topicRecyclerView.setLayoutManager(new LinearLayoutManager(ForumActivity.this));
                 }
                 @Override
                 public void onCancelled(@NonNull DatabaseError databaseError) {
                 }
             };
-            ref.addValueEventListener(utilisateurListener);
+            ref.addValueEventListener(topicListener);
         }
         newTopicButton = findViewById(R.id.newTopicButton);
         newTopicButton.setOnClickListener(new View.OnClickListener() {

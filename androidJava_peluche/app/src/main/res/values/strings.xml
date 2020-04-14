@@ -102,8 +102,6 @@
     <string name="action_settings">Settings</string>
     <string name="title_activity_maps">Map</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_activity_mon_compte_scrolling">MonCompteScrollingActivity</string>
     <string name="title_activity_forum_scrolling">ForumScrollingActivity</string>
 </resources>

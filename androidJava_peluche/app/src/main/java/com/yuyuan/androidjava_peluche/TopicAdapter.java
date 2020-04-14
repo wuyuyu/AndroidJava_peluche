@@ -10,11 +10,19 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
 import java.util.List;
 
 public class TopicAdapter extends RecyclerView.Adapter<TopicAdapter.ViewHolder> {
 
     private List<Topic> topics;
+    private DatabaseReference mDatabase;
+    private User utilisateur;
 
     public TopicAdapter(List<Topic> topics) {
         this.topics = topics;
@@ -29,51 +37,67 @@ public class TopicAdapter extends RecyclerView.Adapter<TopicAdapter.ViewHolder> 
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull final ViewHolder holder, int position) {
         Topic topic = topics.get(position);
-        int idAvatar = 700143;
-        User utilisateur = topic.user;
-        switch (utilisateur.userAvatar){
-            case "chat":
-                idAvatar = 700046;
-                break;
 
-            case "chien":
-                idAvatar = 700010;
-                break;
-
-            case "cochon":
-                idAvatar = 700144;
-                break;
-
-            case "hamster":
-                idAvatar = 700102;
-                break;
-
-            case "hibou":
-                idAvatar = 700028;
-                break;
-
-            case "lion":
-                idAvatar = 700108;
-                break;
-
-            case "panda":
-                idAvatar = 700143;
-                break;
-
-            case "singe":
-                idAvatar = 700124;
-                break;
-
-            case "souris":
-                idAvatar = 700052;
-                break;
-        }
         holder.date.setText(topic.date);
-        holder.auteur.setText(topic.user.userNickName);
         holder.sujet.setText(topic.intitule);
-        holder.avatar.setImageResource(idAvatar);
+
+        mDatabase = FirebaseDatabase.getInstance().getReference();
+        DatabaseReference ref = mDatabase.child("utilisateurs").child(topic.user);
+        ref.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                utilisateur = dataSnapshot.getValue(User.class);
+                holder.auteur.setText(utilisateur.userNickName);
+                if (utilisateur.userAvatar != null) {
+                    switch (utilisateur.userAvatar) {
+                        case "chat":
+                            holder.avatar.setImageResource(R.drawable.ic_chat_30dp);
+                            break;
+
+                        case "chien":
+                            holder.avatar.setImageResource(R.drawable.ic_chien_30dp);
+                            break;
+
+                        case "cochon":
+                            holder.avatar.setImageResource(R.drawable.ic_cochon_30dp);
+                            break;
+
+                        case "hamster":
+                            holder.avatar.setImageResource(R.drawable.ic_hamster_30dp);
+                            break;
+
+                        case "hibou":
+                            holder.avatar.setImageResource(R.drawable.ic_hibou_30dp);
+                            break;
+
+                        case "lion":
+                            holder.avatar.setImageResource(R.drawable.ic_lion_30dp);
+                            break;
+
+                        case "panda":
+                            holder.avatar.setImageResource(R.drawable.ic_panda_30dp);
+                            break;
+
+                        case "singe":
+                            holder.avatar.setImageResource(R.drawable.ic_singe_30dp);
+                            break;
+
+                        case "souris":
+                            holder.avatar.setImageResource(R.drawable.ic_souris_30dp);
+                            break;
+                    }
+                }else {
+                    holder.avatar.setImageResource(R.drawable.ic_panda_30dp);
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
     }
 
     @Override

@@ -40,6 +40,7 @@ public class MonCompteScrollingActivity extends AppCompatActivity {
     private String age;
     private Button monCompteButton;
     private String userId;
+    private RadioButton selectAvatar;
     private DatabaseReference mDatabase;
 
     String TAG = "MonCompteScrolling";
@@ -73,6 +74,7 @@ public class MonCompteScrollingActivity extends AppCompatActivity {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                     User utilisateur = dataSnapshot.getValue(User.class);
+                    Log.i(TAG, "onDataChange: " + dataSnapshot.getValue().getClass());
                     if(utilisateur != null) {
                         if (utilisateur.userLastName != null) {
                             nomEditText.setText(utilisateur.userLastName);
@@ -88,7 +90,7 @@ public class MonCompteScrollingActivity extends AppCompatActivity {
                         }
                         if (utilisateur.userAvatar != null) {
                             final RadioGroup radioGroup = (RadioGroup) findViewById(R.id.avatarRadioGroup);
-                            RadioButton selectAvatar = findViewById(R.id.avatar4RadioButton);
+                             selectAvatar= findViewById(R.id.avatar4RadioButton);
                             switch (utilisateur.userAvatar) {
                                 case "chat":
                                     selectAvatar = findViewById(R.id.avatar1RadioButton);

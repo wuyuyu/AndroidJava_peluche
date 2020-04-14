@@ -116,9 +116,6 @@ public class NewTopicActivity extends AppCompatActivity {
         mDatabase.updateChildren(childUpdates);
 
         sujet = new Topic(utilisateur , dateFormate , nouveauSujet , msg1);
-        Map<String, Object> tpcValues = sujet.toMap();
-        Map<String, Object> childUpdatesTpc = new HashMap<>();
-        childUpdatesTpc.put("/Topics/" + sujet.uid, tpcValues);
-        mDatabase.updateChildren(childUpdatesTpc);
+        mDatabase.child("Topics").child(nouveauSujet).setValue(sujet);
     }
 }

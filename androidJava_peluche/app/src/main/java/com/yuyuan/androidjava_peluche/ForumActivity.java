@@ -1,13 +1,11 @@
 package com.yuyuan.androidjava_peluche;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
-import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -18,11 +16,11 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 public class ForumActivity extends AppCompatActivity {
 
@@ -30,8 +28,6 @@ public class ForumActivity extends AppCompatActivity {
     private Button newTopicButton;
     private FirebaseAuth mAuth;
     private DatabaseReference mDatabase;
-    private DataSnapshot postSnapshot;
-    private String userId;
     private TopicAdapter adapter;
     String TAG = "forum";
 
@@ -44,6 +40,7 @@ public class ForumActivity extends AppCompatActivity {
         mDatabase = FirebaseDatabase.getInstance().getReference();
         topics = new ArrayList<>();
         final DatabaseReference ref = mDatabase.child("Topics");
+        Query orderedTopics = mDatabase.child("Topics").orderByChild("Date");
 
         if (ref != null) {
 
@@ -65,7 +62,7 @@ public class ForumActivity extends AppCompatActivity {
                 public void onCancelled(@NonNull DatabaseError databaseError) {
                 }
             };
-            ref.addValueEventListener(topicListener);
+            orderedTopics.addValueEventListener(topicListener);
         }
         newTopicButton = findViewById(R.id.newTopicButton);
         newTopicButton.setOnClickListener(new View.OnClickListener() {

@@ -1,11 +1,8 @@
 package com.yuyuan.androidjava_peluche;
 
-import android.content.Context;
-import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -20,40 +17,33 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.List;
 
-public class TopicAdapter extends RecyclerView.Adapter<TopicAdapter.ViewHolder> {
-
-    private List<Topic> topics;
+public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.ViewHolder> {
+    private List<Message> messages;
     private DatabaseReference mDatabase;
     private User utilisateur;
-    private Topic topic;
+    private Message message;
 
-    public TopicAdapter(List<Topic> topics) {
-        this.topics = topics;
+    public MessageAdapter(List<Message> messages) {
+        this.messages = messages;
     }
 
     @NonNull
     @Override
-    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public MessageAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.item_topic , parent , false);
-        return new ViewHolder(view);
+                .inflate(R.layout.item_message , parent , false);
+        return new MessageAdapter.ViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull final ViewHolder holder, final int position) {
-        topic = topics.get(position);
-
-        holder.date.setText(topic.date);
-        holder.sujet.setText(topic.intitule);
-        holder.topicButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                goToForumMessages(v , topics.get(position).uid);
-            }
-        });
+    public void onBindViewHolder(@NonNull final MessageAdapter.ViewHolder holder, final int position) {
+        message = messages.get(position);
+        holder.date.setText(message.date);
+        holder.sujet.setText(message.topic);
+        holder.msgTV.setText(message.message);
 
         mDatabase = FirebaseDatabase.getInstance().getReference();
-        DatabaseReference ref = mDatabase.child("utilisateurs").child(topic.user);
+        DatabaseReference ref = mDatabase.child("utilisateurs").child(message.user);
         ref.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -109,16 +99,9 @@ public class TopicAdapter extends RecyclerView.Adapter<TopicAdapter.ViewHolder> 
         });
     }
 
-    private void goToForumMessages(View v , String titre) {
-        Context context = v.getContext();
-        Intent intent = new Intent(context , ForumMessagesActivity.class);
-        intent.putExtra("topic", titre);
-        context.startActivity(intent);
-    }
-
     @Override
     public int getItemCount() {
-        return topics.size();
+        return messages.size();
     }
 
     class ViewHolder extends RecyclerView.ViewHolder{
@@ -127,16 +110,16 @@ public class TopicAdapter extends RecyclerView.Adapter<TopicAdapter.ViewHolder> 
         final TextView auteur;
         final TextView sujet;
         final ImageView avatar;
-        final Button topicButton;
+        final TextView msgTV;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
 
-            date = itemView.findViewById(R.id.dateTextView);
-            auteur = itemView.findViewById(R.id.auteurTextView);
-            sujet = itemView.findViewById(R.id.sujetTextView);
-            avatar = itemView.findViewById(R.id.avatarImageView);
-            topicButton = itemView.findViewById(R.id.chooseTopicButton);
+            date = itemView.findViewById(R.id.dateMessageTextView);
+            auteur = itemView.findViewById(R.id.utilisateurTextView);
+            sujet = itemView.findViewById(R.id.topicTextView);
+            avatar = itemView.findViewById(R.id.userAvatarImageView);
+            msgTV = itemView.findViewById(R.id.messageTextView);
         }
     }
 }

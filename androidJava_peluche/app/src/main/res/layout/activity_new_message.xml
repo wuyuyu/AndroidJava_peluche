@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".NewMessageActivity">
+
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar" />
+
+    <TextView
+        android:id="@+id/textViewNewMessage"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:layout_below="@+id/toolbar"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="80dp"
+        android:background="@drawable/fond_logo"
+        android:fontFamily="cursive"
+        android:gravity="center"
+        android:text="Nouveau message"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textSize="24sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/textViewChoixMessage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textViewNewMessage"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="55dp"
+        android:gravity="center"
+        android:text="Ecrivez votre message : " />
+
+    <TextView
+        android:id="@+id/messageDateTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textViewChoixMessage"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:background="#A16EACAC"
+        android:fontFamily="casual"
+        android:text=" Date "
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/createurMessageTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/messageDateTextView"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"
+        android:background="#A16EACAC"
+        android:fontFamily="casual"
+        android:text="Auteur"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/topicMessageTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/createurMessageTextView"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"
+        android:background="#A16EACAC"
+        android:fontFamily="casual"
+        android:text="Topic"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/messageEditText"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/topicMessageTextView"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/annie_use_your_telescope"
+        android:gravity="center"
+        android:inputType="textMultiLine" />
+
+    <Button
+        android:id="@+id/validerMessageButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/messageEditText"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="36dp"
+        android:background="#7CECB0"
+        android:fontFamily="casual"
+        android:text="Valider"
+        android:textSize="12sp"
+        android:textStyle="bold" />
+
+
+
+</RelativeLayout>

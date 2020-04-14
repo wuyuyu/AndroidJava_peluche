@@ -10,7 +10,7 @@ import java.util.Map;
 public class Message {
 
         public String uid;
-        public User user;
+        public String user;
         public String date;
         public String topic;
         public String message;
@@ -19,8 +19,8 @@ public class Message {
             // Default constructor required for calls to DataSnapshot.getValue(Message.class)
         }
 
-        public Message(User utilisateur, String date, String sujet, String message) {
-            this.user = utilisateur;
+        public Message(String userId, String date, String sujet, String message) {
+            this.user = userId;
             this.date = date;
             this.topic = sujet;
             this.message = message;
@@ -30,7 +30,7 @@ public class Message {
         public Map<String, Object> toMap() {
             HashMap<String, Object> msg = new HashMap<>();
             msg.put("uid", uid);
-            msg.put("Utilisateur", user.userId);
+            msg.put("Utilisateur", user);
             msg.put("Date", date);
             msg.put("Topic", topic);
             msg.put("Message", message);

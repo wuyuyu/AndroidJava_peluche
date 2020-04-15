@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -35,6 +36,19 @@ public class ForumActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_forum);
+
+        getSupportActionBar().setDisplayShowCustomEnabled(true);
+        getSupportActionBar().setCustomView(R.layout.toolbar);
+        View view =getSupportActionBar().getCustomView();
+        //getActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
+
+        ImageButton imageButton= (ImageButton)view.findViewById(R.id.action_bar_back);
+        imageButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                goToAcceuil();
+            }
+        });
 
         mAuth = FirebaseAuth.getInstance();
         mDatabase = FirebaseDatabase.getInstance().getReference();
@@ -77,5 +91,11 @@ public class ForumActivity extends AppCompatActivity {
     private void goToNewTopic() {
         Intent intentNewTopic = new Intent(this , NewTopicActivity.class);
         startActivity(intentNewTopic);
+    }
+
+    private void goToAcceuil() {
+        final Intent intentAcceuil = new Intent(this, MainActivity.class);
+        startActivity(intentAcceuil);
+        finish();
     }
 }

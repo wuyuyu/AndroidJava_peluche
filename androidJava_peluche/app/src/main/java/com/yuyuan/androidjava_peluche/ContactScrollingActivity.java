@@ -13,6 +13,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
@@ -52,6 +53,19 @@ public class ContactScrollingActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_contact_scrolling);
+
+        getSupportActionBar().setDisplayShowCustomEnabled(true);
+        getSupportActionBar().setCustomView(R.layout.toolbar);
+        View view =getSupportActionBar().getCustomView();
+        //getActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
+
+        ImageButton imageButton= (ImageButton)view.findViewById(R.id.action_bar_back);
+        imageButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                goToAcceuil();
+            }
+        });
 
         // Initialize Firebase Auth
         mDatabase = FirebaseDatabase.getInstance().getReference();
@@ -164,6 +178,12 @@ public class ContactScrollingActivity extends AppCompatActivity {
         } else {
             registerForm(reponse1,reponse2,reponse3,reponse3b,reponse4);
         }
+    }
+
+    private void goToAcceuil() {
+        final Intent intentAcceuil = new Intent(this, MainActivity.class);
+        startActivity(intentAcceuil);
+        finish();
     }
 
 

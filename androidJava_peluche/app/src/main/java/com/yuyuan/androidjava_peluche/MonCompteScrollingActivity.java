@@ -18,6 +18,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
@@ -44,6 +45,19 @@ public class MonCompteScrollingActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        getSupportActionBar().setDisplayShowCustomEnabled(true);
+        getSupportActionBar().setCustomView(R.layout.toolbar);
+        View view =getSupportActionBar().getCustomView();
+        //getActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
+
+        ImageButton imageButton= (ImageButton)view.findViewById(R.id.action_bar_back);
+        imageButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                return;
+            }
+        });
 
         // Initialize Firebase Auth
         mAuth = FirebaseAuth.getInstance();
@@ -179,43 +193,43 @@ public class MonCompteScrollingActivity extends AppCompatActivity {
     }
 
     public String onAvatarSelected(View view) {
-        final RadioGroup radioGroup = (RadioGroup) findViewById(R.id.avatarRadioGroup);
+        final RadioGroup radioGroup = findViewById(R.id.avatarRadioGroup);
         int id = radioGroup.getCheckedRadioButtonId();
         Log.i(TAG, "onAvatarSelected: " + id);
         switch (id) {
-            case 2131230797:
+            case 2131361869:
                 avatar = "chat";
                 break;
 
-            case 2131230798:
+            case 2131361870:
                 avatar = "cochon";
                 break;
 
-            case 2131230799:
+            case 2131361871:
                 avatar = "hamster";
                 break;
 
-            case 2131230800:
+            case 2131361872:
                 avatar = "panda";
                 break;
 
-            case 2131230801:
+            case 2131361873:
                 avatar = "lion";
                 break;
 
-            case 2131230802:
+            case 2131361874:
                 avatar = "singe";
                 break;
 
-            case 2131230803:
+            case 2131361875:
                 avatar = "hibou";
                 break;
 
-            case 2131230804:
+            case 2131361876:
                 avatar = "souris";
                 break;
 
-            case 2131230805:
+            case 2131361877:
                 avatar = "chien";
                 break;
 

@@ -11,6 +11,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
@@ -53,6 +54,19 @@ public class BoutiqueActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_boutique);
 
+        getSupportActionBar().setDisplayShowCustomEnabled(true);
+        getSupportActionBar().setCustomView(R.layout.toolbar);
+        View view =getSupportActionBar().getCustomView();
+        //getActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
+
+        ImageButton imageButton= (ImageButton)view.findViewById(R.id.action_bar_back);
+        imageButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                goToAcceuil();
+            }
+        });
+
         radioGroupLivraison = findViewById(R.id.radioGroupLivraison);
         livraison1 = findViewById(R.id.radioButtonLivraison1);
         livraison2 = findViewById(R.id.radioButtonLivraison2);
@@ -66,7 +80,7 @@ public class BoutiqueActivity extends AppCompatActivity {
         mDatabase = FirebaseDatabase.getInstance().getReference();
 
         if(user != null){
-            mailTextInputLayout.setVisibility(View.INVISIBLE);
+            mailTextInputLayout.setVisibility(View.GONE);
             userMail = user.getEmail();
         }else {
             mailTextInputLayout.setVisibility(View.VISIBLE);

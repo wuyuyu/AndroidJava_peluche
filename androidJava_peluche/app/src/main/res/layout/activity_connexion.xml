@@ -6,10 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".ConnexionActivity">
 
-    <include
-        android:id="@+id/toolbar"
-        layout="@layout/toolbar" />
-
     <TextView
         android:id="@+id/textViewConnexion"
         android:layout_width="150dp"

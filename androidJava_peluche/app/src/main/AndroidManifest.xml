@@ -15,7 +15,7 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/panda_icone_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme.NoActionBar">
+        android:theme="@style/CustomTheme">
         <activity android:name=".NewMessageActivity"></activity>
         <activity android:name=".ForumMessagesActivity" />
         <activity android:name=".NewTopicActivity" />
@@ -24,7 +24,7 @@
         <activity
             android:name=".MonCompteScrollingActivity"
             android:label="@string/title_activity_mon_compte_scrolling"
-            android:theme="@style/AppTheme.NoActionBar.NoActionBar" />
+            android:theme="@style/CustomTheme" />
         <activity android:name=".InscriptionActivity" />
         <activity android:name=".ConnexionActivity" />
         <activity android:name=".BoutiqueActivity" />
@@ -51,7 +51,7 @@
         <activity
             android:name=".ContactScrollingActivity"
             android:label="@string/title_activity_contact_scrolling"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/CustomTheme" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -12,7 +12,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.squareup.picasso.Picasso;
 
-import java.util.BitSet;
 import java.util.List;
 
 public class ComptineAdapter extends RecyclerView.Adapter<ComptineAdapter.ViewHolder> {

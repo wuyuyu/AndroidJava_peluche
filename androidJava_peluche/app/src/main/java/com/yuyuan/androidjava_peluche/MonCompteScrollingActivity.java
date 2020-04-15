@@ -139,6 +139,7 @@ public class MonCompteScrollingActivity extends AppCompatActivity {
                                     break;
                             }
                             selectAvatar.setChecked(true);
+                            Log.i(TAG, "onDataChange: avatar  " + utilisateur.userAvatar + "/" + selectAvatar.toString());
                         }
                         Log.i(TAG, "onDataChange: " + utilisateur);
                     }
@@ -197,39 +198,39 @@ public class MonCompteScrollingActivity extends AppCompatActivity {
         int id = radioGroup.getCheckedRadioButtonId();
         Log.i(TAG, "onAvatarSelected: " + id);
         switch (id) {
-            case 2131361869:
+            case 2131361870:
                 avatar = "chat";
                 break;
 
-            case 2131361870:
+            case 2131361871:
                 avatar = "cochon";
                 break;
 
-            case 2131361871:
+            case 2131361872:
                 avatar = "hamster";
                 break;
 
-            case 2131361872:
+            case 2131361873:
                 avatar = "panda";
                 break;
 
-            case 2131361873:
+            case 2131361874:
                 avatar = "lion";
                 break;
 
-            case 2131361874:
+            case 2131361875:
                 avatar = "singe";
                 break;
 
-            case 2131361875:
+            case 2131361876:
                 avatar = "hibou";
                 break;
 
-            case 2131361876:
+            case 2131361877:
                 avatar = "souris";
                 break;
 
-            case 2131361877:
+            case 2131361878:
                 avatar = "chien";
                 break;
 

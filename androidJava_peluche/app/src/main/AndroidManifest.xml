@@ -16,7 +16,8 @@
         android:roundIcon="@mipmap/panda_icone_round"
         android:supportsRtl="true"
         android:theme="@style/CustomTheme">
-        <activity android:name=".NewMessageActivity"></activity>
+        <activity android:name=".UneComptineActivity"></activity>
+        <activity android:name=".NewMessageActivity" />
         <activity android:name=".ForumMessagesActivity" />
         <activity android:name=".NewTopicActivity" />
         <activity android:name=".ForumActivity" />

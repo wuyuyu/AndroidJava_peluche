@@ -46,7 +46,6 @@ public class ForumMessagesActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayShowCustomEnabled(true);
         getSupportActionBar().setCustomView(R.layout.toolbar);
         View view =getSupportActionBar().getCustomView();
-        //getActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
 
         ImageButton imageButton= (ImageButton)view.findViewById(R.id.action_bar_back);
         imageButton.setOnClickListener(new View.OnClickListener() {
@@ -63,7 +62,6 @@ public class ForumMessagesActivity extends AppCompatActivity {
         mDatabase = FirebaseDatabase.getInstance().getReference();
         messages = new ArrayList<>();
         DatabaseReference ref = mDatabase.child("Messages");
-        //Query orderedMessages = mDatabase.child("Messages").orderByChild("Date");
 
         if (ref != null) {
 

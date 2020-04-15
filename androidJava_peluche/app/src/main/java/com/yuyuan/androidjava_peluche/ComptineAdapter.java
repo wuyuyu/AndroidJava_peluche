@@ -1,5 +1,7 @@
 package com.yuyuan.androidjava_peluche;
 
+import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,7 +16,7 @@ import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
-public class ComptineAdapter extends RecyclerView.Adapter<ComptineAdapter.ViewHolder> {
+public class ComptineAdapter extends RecyclerView.Adapter<ComptineAdapter.ViewHolder> implements View.OnClickListener {
     private List<Comptine> comptineList;
 
 
@@ -37,13 +39,8 @@ public class ComptineAdapter extends RecyclerView.Adapter<ComptineAdapter.ViewHo
         holder.date.setText(comptine.getDate());
         holder.nom.setText(comptine.getNom());
         holder.divers.setText(comptine.getDivers());
-        holder.imageButtonPlay.setOnClickListener(new View.OnClickListener(){
-
-            @Override
-            public void onClick(View v) {
-
-            }
-        });
+        holder.itemView.setTag(comptine);
+        holder.imageButtonPlay.setOnClickListener(this);
     }
 
     @Override
@@ -51,7 +48,17 @@ public class ComptineAdapter extends RecyclerView.Adapter<ComptineAdapter.ViewHo
         return comptineList.size();
     }
 
-    class ViewHolder extends RecyclerView.ViewHolder{
+    @Override
+    public void onClick(View v) {
+        Comptine comptine = (Comptine) v.getTag();
+        Context context = v.getContext();
+        Intent intent = new Intent(context, UneComptineActivity.class);
+        intent.putExtra("comptine",comptine);
+        context.startActivity(intent);
+        System.out.println("comptine adaptater:" +comptine);
+    }
+
+    class ViewHolder extends RecyclerView.ViewHolder {
         final ImageView imageComptine;
         final TextView nom;
         final TextView date;

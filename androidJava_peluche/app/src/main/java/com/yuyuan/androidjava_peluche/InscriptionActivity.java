@@ -38,7 +38,6 @@ public class InscriptionActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayShowCustomEnabled(true);
         getSupportActionBar().setCustomView(R.layout.toolbar);
         View view =getSupportActionBar().getCustomView();
-        //getActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
 
         ImageButton imageButton= (ImageButton)view.findViewById(R.id.action_bar_back);
         imageButton.setOnClickListener(new View.OnClickListener() {
